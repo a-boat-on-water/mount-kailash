@@ -1,0 +1,94 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+:root {
+  --background: #FAF8F5;
+  --foreground: #1C1917;
+  --card: #FFFFFF;
+  --card-foreground: #1C1917;
+  --primary: #C2714F;
+  --primary-foreground: #FFFFFF;
+  --secondary: #A68B6B;
+  --secondary-foreground: #FFFFFF;
+  --muted: #F0ECE6;
+  --muted-foreground: #9C9590;
+  --accent: #E8DFD3;
+  --accent-foreground: #1C1917;
+  --border: #E8E2DA;
+  --input: #F0ECE6;
+  --ring: #C2714F;
+  --radius: 0.75rem;
+}
+
+@theme inline {
+  --font-sans: var(--font-dm-sans), 'DM Sans', sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Ken Burns zoom animation */
+@keyframes ken-burns {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+.animate-ken-burns {
+  animation: ken-burns 20s ease-out both;
+}
+
+/* Fade up reveal */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s ease-out both;
+}
+
+/* Prayer wheel spin */
+@keyframes prayer-wheel-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-prayer-wheel {
+  animation: prayer-wheel-spin 2s linear infinite;
+}
+
+/* Safe area bottom padding for iOS */
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}

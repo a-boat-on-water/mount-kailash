@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(brew install:*)",
+      "Bash(pdftoppm -h)",
+      "Bash(pdftotext -h)",
+      "Bash(pdftotext \"/Users/shui/Downloads/《冈仁波齐转山朝圣指南》8.0.1版\\(20260429\\)抢鲜版 \\(1\\).pdf\" -)",
+      "Bash(pdfinfo:*)",
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm)",
+      "Skill(update-config)",
+      "Bash(mkdir -p assets-source)",
+      "Bash(mv kailash_pilgrimage_guide.json \"v2-efa8759eec23d3951a876e20001e603c.jpg\" \"《冈仁波齐转山朝圣指南》8.0.1版\\(20260429\\)抢鲜版.pdf\" assets-source/)",
+      "Read(//Users/shui/Desktop/coding stuff/**)",
+      "Bash(npx create-next-app@latest kailash-temp --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm)",
+      "Bash(cp -r kailash-temp/* \"mount-kailash/\")",
+      "Bash(cp kailash-temp/.eslintrc.json \"mount-kailash/\")",
+      "Bash(cp kailash-temp/.gitignore \"mount-kailash/\")",
+      "Bash(cp -r kailash-temp/.next \"mount-kailash/\")",
+      "Bash(rm -rf kailash-temp)",
+      "Bash(cp kailash-temp/package.json kailash-temp/package-lock.json kailash-temp/tsconfig.json kailash-temp/next.config.ts kailash-temp/postcss.config.mjs kailash-temp/next-env.d.ts kailash-temp/eslint.config.mjs \"mount-kailash/\")",
+      "Bash(cp -r kailash-temp/src \"mount-kailash/\")",
+      "Bash(cp -r kailash-temp/public \"mount-kailash/\")",
+      "Bash(cp -r kailash-temp/node_modules \"mount-kailash/\")",
+      "Bash(ls \"/Users/shui/Desktop/coding stuff/mount-kailash/\"*.config.*)",
+      "Bash(npm install:*)",
+      "Bash(npx next:*)",
+      "Bash(python3 -c ':*)",
+      "WebSearch",
+      "WebFetch(domain:dribbble.com)"
+    ]
+  }
+}
