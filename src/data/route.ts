@@ -26,51 +26,51 @@ export const koraRoute: KoraRoute = {
     type: 'LineString',
     coordinates: [
       // Stage 1: Darchen to Drirapuk (south to west to north)
-      [81.2856, 30.9978, 4675], // Darchen
-      [81.278, 31.002, 4700], // trail heading west
-      [81.27, 31.008, 4720], // approaching Tarboche
-      [81.265, 31.016, 4750], // Tarboche flagpole
-      [81.26, 31.024, 4780], // heading north
-      [81.258, 31.035, 4820], // Kangkyam
-      [81.262, 31.045, 4920], // Chuku Monastery
-      [81.265, 31.055, 4950], // northwest valley
-      [81.272, 31.065, 4980], // turning northeast
-      [81.28, 31.072, 5000], // north valley approach
-      [81.29, 31.078, 5030], // nearing Drirapuk
-      [81.298, 31.082, 5060], // final approach
-      [81.305, 31.085, 5080], // Drirapuk Monastery
+      [81.2856, 30.9978, 4690], // Darchen
+      [81.278, 31.002, 4720], // trail heading west
+      [81.27, 31.008, 4780], // approaching first prostration
+      [81.265, 31.016, 4760], // Tarboche flagpole
+      [81.26, 31.024, 4800], // heading north
+      [81.258, 31.035, 4830], // Chuku Bridge supply
+      [81.262, 31.045, 4870], // Chuku Monastery
+      [81.265, 31.055, 4900], // Second Prostration Point
+      [81.272, 31.065, 4900], // Hayagriva Station
+      [81.28, 31.072, 4950], // north valley approach
+      [81.29, 31.078, 5000], // nearing Drirapuk
+      [81.298, 31.082, 5040], // final approach
+      [81.305, 31.085, 5085], // Drirapuk Monastery
 
       // Stage 2: Drirapuk to Zutul Puk (north face, over pass, down east)
-      [81.31, 31.087, 5100], // leaving Drirapuk
-      [81.315, 31.088, 5210], // Sky Burial Site
-      [81.32, 31.089, 5270], // ascending
-      [81.325, 31.09, 5330], // Shiva-tshal
-      [81.33, 31.089, 5400], // steep ascent
+      [81.31, 31.087, 5120], // leaving Drirapuk
+      [81.315, 31.088, 5290], // Sky Burial W. Supply
+      [81.32, 31.089, 5330], // ascending
+      [81.325, 31.09, 5400], // Shiva-tshal
+      [81.33, 31.089, 5450], // steep ascent
       [81.335, 31.087, 5480], // approaching pass
-      [81.34, 31.085, 5540], // near pass
-      [81.345, 31.082, 5590], // final push
-      [81.35, 31.08, 5630], // Dolma La Pass
-      [81.353, 31.078, 5600], // initial descent
+      [81.34, 31.085, 5550], // near pass
+      [81.345, 31.082, 5600], // final push
+      [81.35, 31.08, 5650], // Dolma La Pass
+      [81.353, 31.078, 5610], // initial descent
       [81.355, 31.075, 5560], // Gauri Kund
       [81.357, 31.07, 5450], // descending
       [81.358, 31.065, 5350], // steep descent
-      [81.36, 31.06, 5200], // Lham Chu Khir campsite
+      [81.36, 31.06, 5240], // Akshobhya Supply
       [81.358, 31.055, 5050], // continuing south
-      [81.355, 31.052, 4920], // valley floor
-      [81.35, 31.05, 4820], // Zutul Puk Monastery
+      [81.355, 31.052, 4970], // Medicine Buddha Valley
+      [81.35, 31.05, 4910], // Zutul Puk Monastery
 
       // Stage 3: Zutul Puk back to Darchen (south through eastern valley)
-      [81.347, 31.045, 4850], // leaving Zutul Puk
-      [81.344, 31.04, 4900], // ascending slightly
-      [81.34, 31.035, 4980], // Gyangdrak Monastery area
-      [81.335, 31.028, 4880], // descending
-      [81.33, 31.022, 4800], // eastern valley
-      [81.32, 31.02, 4750], // Eastern Valley viewpoint
-      [81.312, 31.015, 4720], // continuing south
-      [81.305, 31.01, 4700], // approaching Darchen
-      [81.298, 31.005, 4690], // near town
-      [81.29, 31.0, 4680], // outskirts
-      [81.2856, 30.9978, 4675], // Darchen (return)
+      [81.347, 31.045, 4870], // leaving Zutul Puk
+      [81.344, 31.04, 4850], // Government Teahouse supply
+      [81.34, 31.035, 4830], // descending
+      [81.335, 31.028, 4810], // descending
+      [81.33, 31.022, 4780], // eastern valley
+      [81.32, 31.02, 4750], // Fourth Prostration Point
+      [81.312, 31.015, 4730], // continuing south
+      [81.305, 31.01, 4830], // Dzongdui supply
+      [81.298, 31.005, 4760], // near town
+      [81.29, 31.0, 4720], // outskirts
+      [81.2856, 30.9978, 4690], // Darchen (return)
     ],
   },
   properties: {
@@ -79,7 +79,7 @@ export const koraRoute: KoraRoute = {
       zh: '冈仁波齐转山路线',
     },
     totalDistance: 52,
-    highestPoint: 5630,
+    highestPoint: 5650,
     stages: 3,
   },
 };

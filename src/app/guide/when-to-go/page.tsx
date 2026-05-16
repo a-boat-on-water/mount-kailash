@@ -1,0 +1,60 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { Calendar, CheckCircle, AlertTriangle, XCircle } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { BackButton } from "@/components/BackButton";
+import { seasons, seasonOverview } from "@/data/guide/seasons";
+
+const ratingConfig = {
+  best: { icon: CheckCircle, color: "text-emerald-600", bg: "bg-emerald-50 border-emerald-200", label: { en: "Best", zh: "最佳" } },
+  good: { icon: CheckCircle, color: "text-blue-600", bg: "bg-blue-50 border-blue-200", label: { en: "Good", zh: "推荐" } },
+  caution: { icon: AlertTriangle, color: "text-amber-600", bg: "bg-amber-50 border-amber-200", label: { en: "Caution", zh: "注意" } },
+  closed: { icon: XCircle, color: "text-red-600", bg: "bg-red-50 border-red-200", label: { en: "Closed", zh: "封山" } },
+};
+
+export default function WhenToGoPage() {
+  const { lang, t } = useLanguage();
+
+  return (
+    <div className="px-4 pt-6 pb-8">
+      <BackButton href="/guide" />
+
+      <h1 className="text-xl font-semibold text-foreground tracking-tight mb-1">
+        {t.whenToGo}
+      </h1>
+      <p className="text-xs text-muted-foreground mb-5">
+        {seasonOverview.openingSeason[lang]}
+      </p>
+
+      <div className="space-y-3">
+        {seasons.map((season, i) => {
+          const config = ratingConfig[season.rating];
+          const Icon = config.icon;
+          return (
+            <motion.div
+              key={season.id}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.07, duration: 0.3 }}
+              className={`rounded-xl p-4 border ${config.bg}`}
+            >
+              <div className="flex items-center gap-2 mb-2">
+                <Icon className={`w-4 h-4 ${config.color}`} />
+                <span className={`text-xs font-semibold ${config.color}`}>
+                  {config.label[lang]}
+                </span>
+                <span className="text-sm font-medium text-foreground ml-1">
+                  {season.period[lang]}
+                </span>
+              </div>
+              <p className="text-sm text-foreground/80 leading-relaxed">
+                {season.description[lang]}
+              </p>
+            </motion.div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}

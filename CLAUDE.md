@@ -11,7 +11,7 @@
 ### Architecture Patterns
 - **Server components** load data (fs.readFileSync, JSON parsing) and pass to client components
 - **Client components** handle interactivity (language toggle, filters, map, animations)
-- **i18n**: Global `LanguageContext` provides `{ lang, setLang, t }`. All UI strings in `src/i18n/`. Content data uses `{ en: string, zh: string }` objects.
+- **i18n**: Global `LanguageContext` provides `{ lang, setLang, t }`. All UI strings in `src/i18n/`. Content data uses `{ en: string, zh: string }` objects. **All user-facing text must be bilingual. Chinese content goes in `zh` fields only, English in `en` fields only. Never mix languages in a single field.**
 - **Data loading**: Guide JSON at `doc/kailash_pilgrimage_guide.json` loaded server-side only. Typed data files in `src/data/`.
 
 ### Styling

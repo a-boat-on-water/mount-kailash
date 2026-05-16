@@ -6,6 +6,7 @@ import "maplibre-gl/dist/maplibre-gl.css";
 import { Protocol } from "pmtiles";
 import { waypoints, routeSegments } from "@/data/waypoints";
 import { koraRoute } from "@/data/route";
+import { photoPoints } from "@/data/photoPoints";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const KAILASH_CENTER: [number, number] = [81.3119, 31.067];
@@ -31,6 +32,15 @@ const typeIcons: Record<string, string> = {
   supply: "🎒",
   medical: "🏥",
 };
+
+function formatDurationEn(min: number | null): string {
+  if (!min) return '';
+  const hours = Math.floor(min / 60);
+  const mins = min % 60;
+  if (hours > 0 && mins > 0) return `${hours}h ${mins}min`;
+  if (hours > 0) return `${hours === 1 ? '1 hr' : `${hours} hrs`}`;
+  return `${mins} min`;
+}
 
 async function hasPMTiles(): Promise<boolean> {
   try {
@@ -87,7 +97,7 @@ function buildSegmentPopup(wp: typeof waypoints[0], lang: 'en' | 'zh'): string {
           ${seg.id}: ${seg.from[lang]} → ${seg.to[lang]}
         </p>
         <p style="font-size:10px;color:#9C9590;margin:0;">
-          ${seg.distance}km · ${seg.terrain[lang]} · ${seg.duration}
+          ${seg.distance}km · ${seg.terrain[lang]} · ${lang === 'en' ? formatDurationEn(seg.durationMin) : seg.duration}
           ${seg.elevationChange > 0 ? ` · ↑${seg.elevationChange}m` : seg.elevationChange < 0 ? ` · ↓${Math.abs(seg.elevationChange)}m` : ''}
         </p>
       </div>`
@@ -127,12 +137,11 @@ export default function Map() {
     let cancelled = false;
 
     async function initMap() {
-      const offline = await hasPMTiles();
       if (cancelled || !mapContainer.current) return;
 
       map.current = new maplibregl.Map({
         container: mapContainer.current,
-        style: offline ? getOfflineStyle() : getOnlineStyle(),
+        style: getOnlineStyle(),
         center: KAILASH_CENTER,
         zoom: INITIAL_ZOOM,
         maxZoom: 16,
@@ -183,7 +192,7 @@ export default function Map() {
             width: ${size}px;
             height: ${size}px;
             border-radius: 50%;
-            background: ${isSupply ? '#F59E0B' : color};
+            background: ${wp.segment ? color : isSupply ? '#F59E0B' : color};
             border: 2.5px solid white;
             box-shadow: 0 2px 6px rgba(0,0,0,0.35);
             cursor: pointer;
@@ -204,7 +213,7 @@ export default function Map() {
             el.style.color = 'white';
             el.style.fontFamily = "'DM Sans', sans-serif";
             el.style.whiteSpace = 'nowrap';
-            el.textContent = wp.segment;
+            el.textContent = isSupply ? `${wp.segment} ★` : wp.segment;
           }
 
 
@@ -217,7 +226,41 @@ export default function Map() {
             .addTo(m);
         });
 
+        // === Photo point markers ===
+        const photoMarkers: maplibregl.Marker[] = [];
+        const nonLinkedPhotos = photoPoints.filter((p) => !p.linkedWaypointId);
+        nonLinkedPhotos.forEach((pp) => {
+          const color = stageColors[pp.stage];
+          const el = document.createElement("div");
+          el.style.cssText = `
+            width: 8px; height: 8px;
+            transform: rotate(45deg);
+            background: ${color};
+            opacity: 0.7;
+            border: 1.5px solid white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            cursor: pointer;
+          `;
+
+          const popup = new maplibregl.Popup({ offset: 10, maxWidth: "200px", closeButton: true, anchor: "bottom" })
+            .setHTML(`
+              <div style="font-family:'DM Sans',sans-serif;padding:2px;">
+                <p style="font-weight:600;font-size:12px;margin:0;color:#1C1917;">${pp.id}</p>
+                <p style="font-size:11px;color:#5A4F48;margin:2px 0 0;line-height:1.3;">
+                  ${pp.name[langRef.current]}
+                </p>
+              </div>
+            `);
+
+          const marker = new maplibregl.Marker({ element: el, anchor: "center" })
+            .setLngLat(pp.coordinate)
+            .setPopup(popup)
+            .addTo(m);
+          photoMarkers.push(marker);
+        });
+
         // === Legend overlay ===
+        const l = langRef.current;
         const legend = document.createElement("div");
         legend.style.cssText = `
           position: absolute; top: 12px; left: 12px; z-index: 10;
@@ -227,11 +270,12 @@ export default function Map() {
           border: 1px solid #E8E2DA;
         `;
         legend.innerHTML = `
-          <div style="font-weight:600;margin-bottom:3px;font-size:11px;">Kora Route</div>
-          <div><span style="display:inline-block;width:14px;height:3px;background:${stageColors[1]};border-radius:2px;vertical-align:middle;margin-right:4px;"></span>D1: Darchen→Drirapuk 20km</div>
-          <div><span style="display:inline-block;width:14px;height:3px;background:${stageColors[2]};border-radius:2px;vertical-align:middle;margin-right:4px;"></span>D2: Drirapuk→Zutul Puk 20km</div>
-          <div><span style="display:inline-block;width:14px;height:3px;background:${stageColors[3]};border-radius:2px;vertical-align:middle;margin-right:4px;"></span>D3: Zutul Puk→Darchen 11km</div>
-          <div style="margin-top:3px;"><span style="display:inline-block;width:8px;height:8px;background:#F59E0B;border-radius:50%;border:1.5px solid white;vertical-align:middle;margin-right:4px;"></span>Supply point</div>
+          <div style="font-weight:600;margin-bottom:3px;font-size:11px;">${l === 'en' ? 'Kora Route' : '转山路线'}</div>
+          <div><span style="display:inline-block;width:14px;height:3px;background:${stageColors[1]};border-radius:2px;vertical-align:middle;margin-right:4px;"></span>D1: ${l === 'en' ? 'Darchen→Drirapuk' : '塔钦→止热寺'} 20km</div>
+          <div><span style="display:inline-block;width:14px;height:3px;background:${stageColors[2]};border-radius:2px;vertical-align:middle;margin-right:4px;"></span>D2: ${l === 'en' ? 'Drirapuk→Zutul Puk' : '止热寺→尊珠寺'} 20km</div>
+          <div><span style="display:inline-block;width:14px;height:3px;background:${stageColors[3]};border-radius:2px;vertical-align:middle;margin-right:4px;"></span>D3: ${l === 'en' ? 'Zutul Puk→Darchen' : '尊珠寺→塔钦'} 11km</div>
+          <div style="margin-top:3px;"><span style="display:inline-block;width:8px;height:8px;background:#F59E0B;border-radius:50%;border:1.5px solid white;vertical-align:middle;margin-right:4px;"></span>${l === 'en' ? 'Supply point' : '补给点'}</div>
+          <div><span style="display:inline-block;width:8px;height:8px;transform:rotate(45deg);background:#666;opacity:0.7;border:1px solid white;vertical-align:middle;margin-right:4px;"></span>${l === 'en' ? 'Photo point' : '拍摄点'}</div>
         `;
         m.getContainer().appendChild(legend);
       });

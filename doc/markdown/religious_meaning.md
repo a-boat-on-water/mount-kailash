@@ -7,8 +7,8 @@
 ## Names & Etymology
 
 - **冈仁波齐** (Chinese) — 珍贵的雪山 — Precious Snow Mountain
-- **གངས་རིན་པོ་ཆེ།** (Tibetan) — 珍贵的雪山
-- **ཏི་སེ། / གངས་ཏི་སེ།** (Tibetan (classical)) — 大雪山（藏梵合成词）
+- **** (Tibetan) — 珍贵的雪山
+- ** / ** (Tibetan (classical)) — 大雪山（藏梵合成词）
 - **Kelāsa** (Sanskrit) — 水晶 (crystal) — Crystal (the mountain's shape resembles a crystal stupa)
 - **Kailash / Kailas** (English)
 
@@ -48,7 +48,7 @@
 
 ## The Legend of the Four Great Rivers
 
-传统文化中冈仁波齐「嘴涌四河」（ཁ་འབབ་བཞི།）：象泉河、孔雀河、马泉河、狮泉河四条大河，先在地底流淌很远，再分别从西面大象嘴、南面孔雀嘴、东面马嘴、北面狮嘴四个方位涌出地面。
+传统文化中冈仁波齐「嘴涌四河」（）：象泉河、孔雀河、马泉河、狮泉河四条大河，先在地底流淌很远，再分别从西面大象嘴、南面孔雀嘴、东面马嘴、北面狮嘴四个方位涌出地面。
 
 *Traditional teaching of the 'Four Rivers from Four Mouths': the Elephant, Peacock, Horse, and Lion rivers flow underground from Kailash and emerge from four directional 'mouths' (elephant west, peacock south, horse east, lion north).*
 
@@ -75,7 +75,7 @@
 ### 郭仓巴开创外转经道
 *Götsangpa opens the outer kora route — tradition: 藏传佛教 噶举派 竹巴噶举上竹巴支派*
 
-现今的转山线路相传是由噶举派大师、竹巴噶举上竹巴支派创始人郭仓巴（གོ་ཚང་པ།，1189–1258）于公元十三世纪初探索开创的。八百多年来已有无数朝圣者走过。
+现今的转山线路相传是由噶举派大师、竹巴噶举上竹巴支派创始人郭仓巴（，1189–1258）于公元十三世纪初探索开创的。八百多年来已有无数朝圣者走过。
 
 *English:* The outer kora route around Mt. Kailash is traditionally said to have been pioneered by Götsangpa (1189–1258), founder of the Upper Drukpa Kagyu sub-school, in the early 13th century. Pilgrims have walked it for over 800 years.
 

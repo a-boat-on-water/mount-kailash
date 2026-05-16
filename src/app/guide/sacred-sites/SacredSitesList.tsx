@@ -35,7 +35,7 @@ export default function SacredSitesList({ sites }: Props) {
   return (
     <div className="px-4 pt-4 pb-8">
       <Link
-        href="/guide"
+        href="/about"
         className="inline-flex items-center gap-1.5 text-sm text-muted-foreground mb-4 active:text-foreground"
       >
         <ArrowLeft className="w-4 h-4" />

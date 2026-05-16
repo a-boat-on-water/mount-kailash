@@ -9,7 +9,7 @@ export function HeroSection() {
 
   return (
     <section className="relative w-full aspect-[3/4] overflow-hidden">
-      <div className="absolute inset-0 animate-ken-burns">
+      <div className="absolute inset-0">
         <Image
           src="/images/kailash-hero.jpg"
           alt="Mount Kailash at golden hour"

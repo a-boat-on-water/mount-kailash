@@ -6,9 +6,10 @@ import { Mountain, Route, ThermometerSun, ArrowUp } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const WEATHER_URL = "https://api.open-meteo.com/v1/forecast"
-  + "?latitude=31.067&longitude=81.312"
+  + "?latitude=31.02&longitude=81.41"
   + "&current=temperature_2m"
-  + "&timezone=Asia%2FShanghai";
+  + "&timezone=Asia%2FShanghai"
+  + "&elevation=4640";
 
 function useKailashWeather() {
   const [temp, setTemp] = useState<string | null>(null);
@@ -36,7 +37,7 @@ export function StatsStrip() {
 
   return (
     <motion.div
-      className="grid grid-cols-4 gap-0 border-y border-border bg-card"
+      className="grid grid-cols-4 gap-0"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.3, duration: 0.5 }}
