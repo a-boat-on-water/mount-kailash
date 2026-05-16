@@ -1,16 +1,36 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Mountain, Route, ThermometerSun, ArrowUp } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
+const WEATHER_URL = "https://api.open-meteo.com/v1/forecast"
+  + "?latitude=31.067&longitude=81.312"
+  + "&current=temperature_2m"
+  + "&timezone=Asia%2FShanghai";
+
+function useKailashWeather() {
+  const [temp, setTemp] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch(WEATHER_URL)
+      .then((r) => r.json())
+      .then((data) => setTemp(`${Math.round(data.current.temperature_2m)}°C`))
+      .catch(() => setTemp("—"));
+  }, []);
+
+  return temp;
+}
+
 export function StatsStrip() {
   const { t } = useLanguage();
+  const weather = useKailashWeather();
 
   const stats = [
     { label: t.elevation, value: "5,648m", icon: <Mountain className="w-3.5 h-3.5" /> },
     { label: t.trail, value: "52 km", icon: <Route className="w-3.5 h-3.5" /> },
-    { label: t.temp, value: "-10~15°C", icon: <ThermometerSun className="w-3.5 h-3.5" /> },
+    { label: t.temp, value: weather || "—", icon: <ThermometerSun className="w-3.5 h-3.5" /> },
     { label: t.gain, value: "1,200m", icon: <ArrowUp className="w-3.5 h-3.5" /> },
   ];
 

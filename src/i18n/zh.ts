@@ -2,15 +2,15 @@ export const zh = {
   // Nav
   home: '首页',
   map: '地图',
-  guide: '���南',
+  guide: '指南',
   info: '信息',
 
   // Hero
-  heroSubtitle: '冈仁波齐转山朝圣',
-  heroLine1: '神圣。',
-  heroLine2: '永恒。',
-  heroLine3: '等你来走。',
-  heroDescription: '环绕世界上最神圣山峰的52公里转山路。',
+  heroSubtitle: '冈仁波齐转山',
+  heroLine1: '你绕山而行，',
+  heroLine2: '山却在',
+  heroLine3: '绕你而转。',
+  heroDescription: '',
 
   // Stats
   elevation: '海拔',

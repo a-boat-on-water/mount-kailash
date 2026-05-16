@@ -41,35 +41,37 @@ export function HeroSection() {
 
       {/* Hero text */}
       <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
-        <motion.p
-          className="text-white/70 text-xs font-medium tracking-widest uppercase mb-2"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          {t.heroSubtitle}
-        </motion.p>
         <motion.h1
-          className="text-white text-3xl font-light leading-tight tracking-tight"
+          className="text-white text-3xl font-semibold leading-tight tracking-tight"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          {t.heroSubtitle}
+        </motion.h1>
+        <motion.p
+          className="text-white/80 text-lg font-light leading-snug mt-2"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.55 }}
         >
           {t.heroLine1}
           <br />
-          <span className="font-semibold">{t.heroLine2}</span>
+          {t.heroLine2}
           <br />
-          <span className="text-white/80 font-light">{t.heroLine3}</span>
-        </motion.h1>
-
-        <motion.p
-          className="text-white/60 text-sm leading-relaxed mt-3 max-w-[260px]"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.7 }}
-        >
-          {t.heroDescription}
+          {t.heroLine3}
         </motion.p>
+
+        {t.heroDescription && (
+          <motion.p
+            className="text-white/60 text-sm leading-relaxed mt-3 max-w-[260px]"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+          >
+            {t.heroDescription}
+          </motion.p>
+        )}
       </div>
     </section>
   );

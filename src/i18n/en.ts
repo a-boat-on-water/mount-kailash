@@ -6,11 +6,11 @@ export const en = {
   info: 'Info',
 
   // Hero
-  heroSubtitle: 'Mount Kailash Pilgrimage',
-  heroLine1: 'Sacred.',
-  heroLine2: 'Timeless.',
-  heroLine3: 'Yours to walk.',
-  heroDescription: 'A 52km circuit around the most revered peak on Earth.',
+  heroSubtitle: 'Mount Kailash Kora',
+  heroLine1: 'A walk around',
+  heroLine2: 'a mountain',
+  heroLine3: 'that walks around you.',
+  heroDescription: '',
 
   // Stats
   elevation: 'ELEVATION',
@@ -36,7 +36,7 @@ export const en = {
 
   // Quote
   quote: 'Every step around the sacred mountain is a prayer carried by the wind.',
-  quoteAttribution: 'Tibetan Proverb',
+  quoteAttribution: '',
 
   // Guide
   guideTitle: 'Pilgrimage Guide',
