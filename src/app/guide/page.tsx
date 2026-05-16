@@ -20,7 +20,7 @@ export default function GuidePage() {
   return (
     <div className="relative min-h-dvh">
       {/* Background image + overlay */}
-      <div className="absolute inset-0 z-0">
+      <div className="fixed inset-0 z-0">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url('/images/trail-card.jpg')" }}

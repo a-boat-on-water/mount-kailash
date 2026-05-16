@@ -8,7 +8,7 @@ export default function HomePage() {
   const { lang, setLang, t } = useLanguage();
 
   return (
-    <div className="relative min-h-dvh">
+    <div className="relative h-dvh overflow-hidden">
       {/* Fixed background */}
       <div className="absolute inset-0 z-0">
         <Image
