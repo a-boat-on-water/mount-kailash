@@ -3,8 +3,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { StatsStrip } from "@/components/StatsStrip";
-import { QuoteSection } from "@/components/QuoteSection";
 
 export default function HomePage() {
   const { lang, setLang, t } = useLanguage();
@@ -44,7 +42,7 @@ export default function HomePage() {
         </motion.div>
 
         {/* Hero text */}
-        <div className="px-6 pt-12 pb-6">
+        <div className="px-6 pt-[60vh] pb-6">
           <motion.h1
             className="text-white text-3xl font-semibold leading-tight tracking-tight"
             initial={{ opacity: 0, y: 20 }}
@@ -67,25 +65,6 @@ export default function HomePage() {
           </motion.p>
         </div>
 
-        {/* Floating stats card */}
-        <motion.div
-          className="mx-4 bg-white/95 backdrop-blur-sm rounded-2xl shadow-lg shadow-black/10 overflow-hidden"
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.4 }}
-        >
-          <StatsStrip />
-        </motion.div>
-
-        {/* Floating quote card */}
-        <motion.div
-          className="mx-4 mt-3 mb-28 bg-white/95 backdrop-blur-sm rounded-2xl shadow-lg shadow-black/10"
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7, duration: 0.4 }}
-        >
-          <QuoteSection />
-        </motion.div>
       </div>
     </div>
   );
