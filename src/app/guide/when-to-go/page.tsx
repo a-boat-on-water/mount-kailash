@@ -1,29 +1,30 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, CheckCircle, AlertTriangle, XCircle } from "lucide-react";
+import { CheckCircle, AlertTriangle, XCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { BackButton } from "@/components/BackButton";
+import { PageBackground } from "@/components/PageBackground";
 import { seasons, seasonOverview } from "@/data/guide/seasons";
 
 const ratingConfig = {
-  best: { icon: CheckCircle, color: "text-emerald-600", bg: "bg-emerald-50 border-emerald-200", label: { en: "Best", zh: "最佳" } },
-  good: { icon: CheckCircle, color: "text-blue-600", bg: "bg-blue-50 border-blue-200", label: { en: "Good", zh: "推荐" } },
-  caution: { icon: AlertTriangle, color: "text-amber-600", bg: "bg-amber-50 border-amber-200", label: { en: "Caution", zh: "注意" } },
-  closed: { icon: XCircle, color: "text-red-600", bg: "bg-red-50 border-red-200", label: { en: "Closed", zh: "封山" } },
+  best: { icon: CheckCircle, color: "text-emerald-600", bg: "bg-emerald-50/90 border-emerald-200", label: { en: "Best", zh: "最佳" } },
+  good: { icon: CheckCircle, color: "text-blue-600", bg: "bg-blue-50/90 border-blue-200", label: { en: "Good", zh: "推荐" } },
+  caution: { icon: AlertTriangle, color: "text-amber-600", bg: "bg-amber-50/90 border-amber-200", label: { en: "Caution", zh: "注意" } },
+  closed: { icon: XCircle, color: "text-red-600", bg: "bg-red-50/90 border-red-200", label: { en: "Closed", zh: "封山" } },
 };
 
 export default function WhenToGoPage() {
   const { lang, t } = useLanguage();
 
   return (
-    <div className="px-4 pt-6 pb-8">
+    <PageBackground image="/images/trail-card.jpg">
       <BackButton href="/guide" />
 
-      <h1 className="text-xl font-semibold text-foreground tracking-tight mb-1">
+      <h1 className="text-xl font-semibold text-white tracking-tight mb-1">
         {t.whenToGo}
       </h1>
-      <p className="text-xs text-muted-foreground mb-5">
+      <p className="text-xs text-white/70 mb-5">
         {seasonOverview.openingSeason[lang]}
       </p>
 
@@ -37,7 +38,7 @@ export default function WhenToGoPage() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.07, duration: 0.3 }}
-              className={`rounded-xl p-4 border ${config.bg}`}
+              className={`rounded-xl p-4 border backdrop-blur-sm shadow-lg ${config.bg}`}
             >
               <div className="flex items-center gap-2 mb-2">
                 <Icon className={`w-4 h-4 ${config.color}`} />
@@ -55,6 +56,6 @@ export default function WhenToGoPage() {
           );
         })}
       </div>
-    </div>
+    </PageBackground>
   );
 }

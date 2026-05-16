@@ -10,7 +10,7 @@ export default function HomePage() {
   return (
     <div className="relative h-dvh overflow-hidden">
       {/* Fixed background */}
-      <div className="absolute inset-0 z-0">
+      <div className="fixed inset-0 z-0">
         <Image
           src="/images/kailash-hero.jpg"
           alt="Mount Kailash"
@@ -18,31 +18,31 @@ export default function HomePage() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10">
-        {/* Glass nav bar */}
+      <div className="relative z-10 px-4 pt-6">
+        {/* Glass nav bar — same as Guide/About frosted style */}
         <motion.div
-          className="mx-4 mt-4 flex items-center justify-between px-5 py-3 rounded-full bg-white/90 backdrop-blur-md shadow-sm"
+          className="flex items-center justify-between px-5 py-3 rounded-full bg-white/20 backdrop-blur-md border border-white/30"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <span className="text-sm font-semibold tracking-wider text-foreground">
+          <span className="text-sm font-semibold tracking-wider text-white">
             KAILASH
           </span>
           <button
             onClick={() => setLang(lang === 'en' ? 'zh' : 'en')}
-            className="text-xs font-medium px-3 py-1 rounded-full bg-foreground/5 text-foreground/70 hover:bg-foreground/10 transition-colors"
+            className="text-xs font-medium px-3 py-1 rounded-full bg-white/10 text-white/80 hover:bg-white/20 transition-colors"
           >
             {lang === 'en' ? '中文' : 'EN'}
           </button>
         </motion.div>
 
         {/* Hero text */}
-        <div className="px-6 pt-[60vh] pb-6">
+        <div className="px-2 pt-[50vh]">
           <motion.h1
             className="text-white text-3xl font-semibold leading-tight tracking-tight"
             initial={{ opacity: 0, y: 20 }}
@@ -64,7 +64,6 @@ export default function HomePage() {
             {t.heroLine3}
           </motion.p>
         </div>
-
       </div>
     </div>
   );

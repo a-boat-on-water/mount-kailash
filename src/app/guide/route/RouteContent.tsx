@@ -6,6 +6,7 @@ import { Mountain } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ElevationChart } from "@/components/ElevationChart";
 import { BackButton } from "@/components/BackButton";
+import { PageBackground } from "@/components/PageBackground";
 import { stages } from "@/data/guide/stages";
 
 interface Props {
@@ -16,13 +17,13 @@ export default function RouteContent({ coordinates }: Props) {
   const { lang, t } = useLanguage();
 
   return (
-    <div className="px-4 pt-6 pb-8">
+    <PageBackground image="/images/trail-card.jpg">
       <BackButton href="/guide" />
 
-      <h1 className="text-xl font-semibold text-foreground tracking-tight mb-1">
+      <h1 className="text-xl font-semibold text-white tracking-tight mb-1">
         {t.route}
       </h1>
-      <p className="text-xs text-muted-foreground mb-5">
+      <p className="text-xs text-white/70 mb-5">
         {lang === "en" ? "52km circuit • 2-3 days • max 5,650m" : "52公里环线 • 2-3天 • 最高5650米"}
       </p>
 
@@ -36,10 +37,10 @@ export default function RouteContent({ coordinates }: Props) {
       {/* Elevation Profile */}
       <div className="mb-6">
         <div className="flex items-center gap-2 mb-3">
-          <Mountain className="w-4 h-4 text-primary" />
-          <h2 className="text-base font-semibold text-foreground">{t.elevationProfile}</h2>
+          <Mountain className="w-4 h-4 text-white/80" />
+          <h2 className="text-base font-semibold text-white">{t.elevationProfile}</h2>
         </div>
-        <div className="bg-card rounded-xl p-4 border border-border">
+        <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-white/20 shadow-lg">
           <ElevationChart coordinates={coordinates} />
         </div>
       </div>
@@ -55,7 +56,7 @@ export default function RouteContent({ coordinates }: Props) {
           >
             <Link
               href={`/guide/route/${stage.id}`}
-              className="block bg-card rounded-xl p-4 border border-border active:bg-muted transition-colors"
+              className="block bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-white/20 shadow-lg active:bg-white/80 transition-colors"
             >
               <div className="flex items-center gap-3 mb-2">
                 <span className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold">
@@ -85,13 +86,13 @@ export default function RouteContent({ coordinates }: Props) {
           </motion.div>
         ))}
       </div>
-    </div>
+    </PageBackground>
   );
 }
 
 function StatCard({ label, value }: { label: string; value: string }) {
   return (
-    <div className="bg-card rounded-xl p-3 border border-border text-center">
+    <div className="bg-white/90 backdrop-blur-sm rounded-xl p-3 border border-white/20 shadow-lg text-center">
       <p className="text-lg font-bold text-primary">{value}</p>
       <p className="text-[10px] text-muted-foreground mt-0.5">{label}</p>
     </div>

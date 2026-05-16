@@ -9,7 +9,7 @@ export function BackButton({ href }: { href: string }) {
   return (
     <Link
       href={href}
-      className="inline-flex items-center gap-1 text-sm text-muted-foreground mb-4 active:text-foreground"
+      className="inline-flex items-center gap-1 text-sm text-white/70 mb-4 active:text-white"
     >
       <ChevronLeft className="w-4 h-4" />
       {t.back}

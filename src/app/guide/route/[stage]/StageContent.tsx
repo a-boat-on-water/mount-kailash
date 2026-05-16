@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { AlertTriangle, MapPin, Home, Package, Landmark } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { BackButton } from "@/components/BackButton";
+import { PageBackground } from "@/components/PageBackground";
 import type { Stage, StageLandmark } from "@/data/guide/stages";
 
 const typeIcons = {
@@ -24,7 +25,7 @@ export default function StageContent({ stage }: { stage: Stage }) {
   const { lang } = useLanguage();
 
   return (
-    <div className="px-4 pt-6 pb-8">
+    <PageBackground image="/images/trail-card.jpg">
       <BackButton href="/guide/route" />
 
       {/* Header */}
@@ -33,28 +34,28 @@ export default function StageContent({ stage }: { stage: Stage }) {
           {stage.id}
         </span>
         <div>
-          <h1 className="text-lg font-semibold text-foreground">{stage.title[lang]}</h1>
-          <p className="text-xs text-muted-foreground">
+          <h1 className="text-lg font-semibold text-white">{stage.title[lang]}</h1>
+          <p className="text-xs text-white/70">
             {stage.distance} • {stage.duration} • {stage.elevationGain}
           </p>
         </div>
       </div>
 
       {/* Timing tip */}
-      <div className="bg-primary/5 rounded-xl p-3 border border-primary/20 mb-4">
+      <div className="bg-white/90 backdrop-blur-sm rounded-xl p-3 border border-white/20 shadow-lg mb-4">
         <p className="text-sm text-foreground">{stage.timingTip[lang]}</p>
       </div>
 
       {/* Safety alert */}
       {stage.safetyAlert && (
-        <div className="bg-red-50 rounded-xl p-3 border border-red-200 mb-4 flex gap-2">
+        <div className="bg-red-50/90 backdrop-blur-sm rounded-xl p-3 border border-red-200 shadow-lg mb-4 flex gap-2">
           <AlertTriangle className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
           <p className="text-sm text-red-800">{stage.safetyAlert[lang]}</p>
         </div>
       )}
 
       {/* Landmarks */}
-      <h2 className="text-base font-semibold text-foreground mb-3">
+      <h2 className="text-base font-semibold text-white mb-3">
         {lang === "en" ? "Landmarks" : "沿途圣迹"}
       </h2>
       <div className="space-y-2.5">
@@ -62,7 +63,7 @@ export default function StageContent({ stage }: { stage: Stage }) {
           <LandmarkCard key={lm.id} landmark={lm} index={i} lang={lang} />
         ))}
       </div>
-    </div>
+    </PageBackground>
   );
 }
 
@@ -75,7 +76,7 @@ function LandmarkCard({ landmark, index, lang }: { landmark: StageLandmark; inde
       initial={{ opacity: 0, x: -8 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay: index * 0.05, duration: 0.25 }}
-      className="bg-card rounded-xl p-3.5 border border-border"
+      className="bg-white/90 backdrop-blur-sm rounded-xl p-3.5 border border-white/20 shadow-lg"
     >
       <div className="flex items-start gap-3">
         <div className={`w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 ${color}`}>

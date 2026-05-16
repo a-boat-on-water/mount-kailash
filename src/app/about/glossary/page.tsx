@@ -3,16 +3,17 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { BackButton } from "@/components/BackButton";
+import { PageBackground } from "@/components/PageBackground";
 import { glossaryEntries } from "@/data/about/glossary";
 
 export default function GlossaryPage() {
   const { lang, t } = useLanguage();
 
   return (
-    <div className="px-4 pt-6 pb-8">
+    <PageBackground image="/images/sacred-card.jpg">
       <BackButton href="/about" />
 
-      <h1 className="text-xl font-semibold text-foreground tracking-tight mb-5">
+      <h1 className="text-xl font-semibold text-white tracking-tight mb-5">
         {t.glossary}
       </h1>
 
@@ -23,7 +24,7 @@ export default function GlossaryPage() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: Math.min(i * 0.03, 0.5), duration: 0.25 }}
-            className="bg-card rounded-xl p-3.5 border border-border"
+            className="bg-white/90 backdrop-blur-sm rounded-xl p-3.5 border border-white/20 shadow-lg"
           >
             <p className="text-sm font-semibold text-primary">
               {entry.term[lang]}
@@ -34,6 +35,6 @@ export default function GlossaryPage() {
           </motion.div>
         ))}
       </div>
-    </div>
+    </PageBackground>
   );
 }

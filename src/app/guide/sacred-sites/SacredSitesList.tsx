@@ -1,10 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import { ArrowLeft, MapPin, BookOpen, Flame, ChevronDown, ChevronUp } from "lucide-react";
+import { MapPin, BookOpen, Flame, ChevronDown, ChevronUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { BackButton } from "@/components/BackButton";
+import { PageBackground } from "@/components/PageBackground";
 import type { SacredSite } from "@/data/sacred-sites";
 
 const stageColors = { 1: "bg-blue-500", 2: "bg-red-500", 3: "bg-green-500" } as Record<number, string>;
@@ -33,19 +34,13 @@ export default function SacredSitesList({ sites }: Props) {
   sites.forEach((s) => { stageCounts[s.stage as 1 | 2 | 3]++; });
 
   return (
-    <div className="px-4 pt-4 pb-8">
-      <Link
-        href="/about"
-        className="inline-flex items-center gap-1.5 text-sm text-muted-foreground mb-4 active:text-foreground"
-      >
-        <ArrowLeft className="w-4 h-4" />
-        {lang === "en" ? "Back" : "返回"}
-      </Link>
+    <PageBackground image="/images/sacred-card.jpg">
+      <BackButton href="/about" />
 
-      <h1 className="text-xl font-semibold text-foreground tracking-tight mb-1">
+      <h1 className="text-xl font-semibold text-white tracking-tight mb-1">
         {t.sacredSites}
       </h1>
-      <p className="text-xs text-muted-foreground mb-4">
+      <p className="text-xs text-white/70 mb-4">
         {lang === "en"
           ? `${sites.length} sacred sites along the 52km kora`
           : `52公里转山路上${sites.length}处圣迹`}
@@ -59,8 +54,8 @@ export default function SacredSitesList({ sites }: Props) {
             onClick={() => setActiveStage(f.value)}
             className={`flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-medium transition-colors ${
               activeStage === f.value
-                ? "bg-foreground text-background"
-                : "bg-muted text-muted-foreground"
+                ? "bg-white text-foreground"
+                : "bg-white/20 text-white/80"
             }`}
           >
             {f.label}
@@ -86,10 +81,9 @@ export default function SacredSitesList({ sites }: Props) {
             >
               <div
                 onClick={() => setExpandedId(isExpanded ? null : site.id)}
-                className="w-full text-left bg-card rounded-xl p-3.5 border border-border active:bg-muted/50 transition-colors cursor-pointer"
+                className="w-full text-left bg-white/90 backdrop-blur-sm rounded-xl p-3.5 border border-white/20 shadow-lg active:bg-white/80 transition-colors cursor-pointer"
               >
                 <div className="flex items-start gap-3">
-                  {/* Stage dot */}
                   <div className={`flex-shrink-0 w-7 h-7 rounded-lg ${stageColors[site.stage] || 'bg-primary'} flex items-center justify-center`}>
                     <span className="text-white text-[10px] font-bold">
                       {site.id.replace('ss-', '')}
@@ -128,7 +122,6 @@ export default function SacredSitesList({ sites }: Props) {
                   </div>
                 </div>
 
-                {/* Expanded content */}
                 <AnimatePresence>
                   {isExpanded && (
                     <motion.div
@@ -138,7 +131,7 @@ export default function SacredSitesList({ sites }: Props) {
                       transition={{ duration: 0.2 }}
                       className="overflow-hidden"
                     >
-                      <div className="mt-3 pt-3 border-t border-border space-y-2.5">
+                      <div className="mt-3 pt-3 border-t border-border/50 space-y-2.5">
                         <p className="text-xs text-foreground/80 leading-relaxed whitespace-pre-line">
                           {site.description_full || site.description}
                         </p>
@@ -179,6 +172,6 @@ export default function SacredSitesList({ sites }: Props) {
           );
         })}
       </div>
-    </div>
+    </PageBackground>
   );
 }
