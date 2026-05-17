@@ -88,6 +88,11 @@
   animation: prayer-wheel-spin 2s linear infinite;
 }
 
+/* Frosted glass card */
+.card-glass {
+  @apply bg-white/90 backdrop-blur-sm rounded-xl border border-white/20 shadow-lg;
+}
+
 /* Safe area bottom padding for iOS */
 .safe-area-bottom {
   padding-bottom: env(safe-area-inset-bottom, 0px);

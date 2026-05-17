@@ -80,6 +80,46 @@ export const zh = {
   rituals: '仪轨',
   ritualsDesc: '转山的修行与仪式',
 
+  // Section titles — Logistics
+  gettingToDarchen: '到达塔钦',
+  darchenBaseCamp: '塔钦大本营',
+  accommodation: '住宿',
+  facilities: '配套设施',
+  feesAndShuttles: '费用与接驳',
+  portersAndHorses: '背夫与马匹',
+  supplyPointsTitle: '沿途补给',
+  count: '数量',
+  maxGap: '最远间距',
+  infrastructure: '基础设施',
+  services: '服务',
+
+  // Section titles — Safety
+  altitudeSickness: '高原反应',
+  otherRisks: '其他风险',
+  realIncidents: '真实事故',
+  practicalTips: '实用建议',
+
+  // Section titles — Protocols
+  respectAndEtiquette: '尊重与礼节',
+  environmentalResponsibility: '环境责任',
+
+  // Route
+  routeSubtitle: '52公里环线 • 2-3天 • 最高5650米',
+  duration: '时间',
+  elevationGain: '爬升',
+  landmarks: '沿途圣迹',
+
+  // Sacred sites
+  sacredSitesCount: '52公里转山路上{count}处圣迹',
+  legend: '传说',
+  practice: '仪轨',
+
+  // Packing
+  itemCount: '{count}件物品',
+
+  // Contacts
+  verified: '核实',
+
   // Shared
   allStages: '全部阶段',
   stage: '阶段',

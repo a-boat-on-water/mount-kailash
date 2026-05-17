@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { BackButton } from "@/components/BackButton";
 import { PageBackground } from "@/components/PageBackground";
+import { PageTitle } from "@/components/PageTitle";
 import { mountainSections } from "@/data/about/mountain";
 
 export default function MountainPage() {
@@ -13,9 +14,7 @@ export default function MountainPage() {
     <PageBackground image="/images/sacred-card.jpg">
       <BackButton href="/about" />
 
-      <h1 className="text-xl font-semibold text-white tracking-tight mb-5">
-        {t.sacredMountain}
-      </h1>
+      <PageTitle>{t.sacredMountain}</PageTitle>
 
       <div className="space-y-4">
         {mountainSections.map((section, i) => (
@@ -24,7 +23,7 @@ export default function MountainPage() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.1, duration: 0.4 }}
-            className="bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-white/20 shadow-lg"
+            className="card-glass p-4"
           >
             <h2 className="text-sm font-semibold text-foreground mb-2">
               {section.title[lang]}

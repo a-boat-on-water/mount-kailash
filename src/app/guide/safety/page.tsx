@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Shield, AlertTriangle, ChevronDown, Lightbulb } from "lucide-react";
+import { Shield, AlertTriangle, Lightbulb } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { BackButton } from "@/components/BackButton";
 import { PageBackground } from "@/components/PageBackground";
+import { PageTitle } from "@/components/PageTitle";
+import { Section } from "@/components/Section";
+import { ExpandableCard } from "@/components/ExpandableCard";
 import { altitudeTips, otherRisks, incidents, authorTips } from "@/data/guide/safety";
 
 export default function SafetyPage() {
@@ -15,12 +16,10 @@ export default function SafetyPage() {
     <PageBackground image="/images/trail-card.jpg">
       <BackButton href="/guide" />
 
-      <h1 className="text-xl font-semibold text-white tracking-tight mb-5">
-        {t.safety}
-      </h1>
+      <PageTitle>{t.safety}</PageTitle>
 
-      <Section title={lang === "en" ? "Altitude Sickness" : "高原反应"} icon={<AlertTriangle className="w-4 h-4" />}>
-        <div className="bg-white/90 backdrop-blur-sm rounded-xl border border-white/20 shadow-lg divide-y divide-border/50">
+      <Section title={t.altitudeSickness} icon={<AlertTriangle className="w-4 h-4" />}>
+        <div className="card-glass divide-y divide-border/50">
           {altitudeTips.map((tip) => (
             <div key={tip.id} className="p-3.5">
               <p className="text-sm font-medium text-foreground">{tip.title[lang]}</p>
@@ -30,8 +29,8 @@ export default function SafetyPage() {
         </div>
       </Section>
 
-      <Section title={lang === "en" ? "Other Risks" : "其他风险"} icon={<Shield className="w-4 h-4" />}>
-        <div className="bg-white/90 backdrop-blur-sm rounded-xl border border-white/20 shadow-lg divide-y divide-border/50">
+      <Section title={t.otherRisks} icon={<Shield className="w-4 h-4" />}>
+        <div className="card-glass divide-y divide-border/50">
           {otherRisks.map((risk) => (
             <div key={risk.id} className="p-3.5">
               <p className="text-sm font-medium text-foreground">{risk.title[lang]}</p>
@@ -41,16 +40,24 @@ export default function SafetyPage() {
         </div>
       </Section>
 
-      <Section title={lang === "en" ? "Real Incidents" : "真实事故"} icon={<AlertTriangle className="w-4 h-4" />}>
+      <Section title={t.realIncidents} icon={<AlertTriangle className="w-4 h-4" />}>
         <div className="space-y-2">
           {incidents.map((inc) => (
-            <IncidentCard key={inc.id} incident={inc} lang={lang} />
+            <ExpandableCard
+              key={inc.id}
+              title={inc.title[lang]}
+              icon={<AlertTriangle className="w-3.5 h-3.5 text-amber-600 flex-shrink-0" />}
+            >
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                {inc.description[lang]}
+              </p>
+            </ExpandableCard>
           ))}
         </div>
       </Section>
 
-      <Section title={lang === "en" ? "Practical Tips" : "实用建议"} icon={<Lightbulb className="w-4 h-4" />}>
-        <div className="bg-white/90 backdrop-blur-sm rounded-xl border border-white/20 shadow-lg divide-y divide-border/50">
+      <Section title={t.practicalTips} icon={<Lightbulb className="w-4 h-4" />}>
+        <div className="card-glass divide-y divide-border/50">
           {authorTips.map((tip) => (
             <div key={tip.id} className="p-3.5">
               <p className="text-sm font-medium text-foreground">{tip.title[lang]}</p>
@@ -60,54 +67,5 @@ export default function SafetyPage() {
         </div>
       </Section>
     </PageBackground>
-  );
-}
-
-function IncidentCard({ incident, lang }: { incident: typeof incidents[number]; lang: "en" | "zh" }) {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <div className="bg-white/90 backdrop-blur-sm rounded-xl border border-white/20 shadow-lg overflow-hidden">
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full p-3.5 flex items-center gap-2 text-left"
-      >
-        <AlertTriangle className="w-3.5 h-3.5 text-amber-600 flex-shrink-0" />
-        <span className="text-sm font-medium text-foreground">{incident.title[lang]}</span>
-        <ChevronDown className={`w-3.5 h-3.5 text-muted-foreground ml-auto transition-transform ${open ? "rotate-180" : ""}`} />
-      </button>
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="overflow-hidden"
-          >
-            <p className="px-3.5 pb-3.5 text-xs text-muted-foreground leading-relaxed">
-              {incident.description[lang]}
-            </p>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-}
-
-function Section({ title, icon, children }: { title: string; icon: React.ReactNode; children: React.ReactNode }) {
-  return (
-    <motion.section
-      className="mb-6"
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4 }}
-    >
-      <div className="flex items-center gap-2 mb-3">
-        <span className="text-white/80">{icon}</span>
-        <h2 className="text-base font-semibold text-white">{title}</h2>
-      </div>
-      {children}
-    </motion.section>
   );
 }
