@@ -80,6 +80,46 @@ export const en = {
   rituals: 'Rituals',
   ritualsDesc: 'Practices and ceremonies of the kora',
 
+  // Section titles — Logistics
+  gettingToDarchen: 'Getting to Darchen',
+  darchenBaseCamp: 'Darchen Base Camp',
+  accommodation: 'Accommodation',
+  facilities: 'Facilities',
+  feesAndShuttles: 'Fees & Shuttles',
+  portersAndHorses: 'Porters & Horses',
+  supplyPointsTitle: 'Supply Points',
+  count: 'Count',
+  maxGap: 'Max gap',
+  infrastructure: 'Infrastructure',
+  services: 'Services',
+
+  // Section titles — Safety
+  altitudeSickness: 'Altitude Sickness',
+  otherRisks: 'Other Risks',
+  realIncidents: 'Real Incidents',
+  practicalTips: 'Practical Tips',
+
+  // Section titles — Protocols
+  respectAndEtiquette: 'Respect & Etiquette',
+  environmentalResponsibility: 'Environmental Responsibility',
+
+  // Route
+  routeSubtitle: '52km circuit • 2-3 days • max 5,650m',
+  duration: 'Duration',
+  elevationGain: 'Elevation',
+  landmarks: 'Landmarks',
+
+  // Sacred sites
+  sacredSitesCount: '{count} sacred sites along the 52km kora',
+  legend: 'Legend',
+  practice: 'Practice',
+
+  // Packing
+  items: 'items',
+
+  // Contacts
+  verified: 'Verified',
+
   // Shared
   allStages: 'All Stages',
   stage: 'Stage',

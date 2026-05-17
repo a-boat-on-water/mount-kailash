@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { BackButton } from "@/components/BackButton";
 import { PageBackground } from "@/components/PageBackground";
+import { PageTitle } from "@/components/PageTitle";
 import type { SacredSite } from "@/data/sacred-sites";
 
 const stageColors = { 1: "bg-blue-500", 2: "bg-red-500", 3: "bg-green-500" } as Record<number, string>;
@@ -37,13 +38,9 @@ export default function SacredSitesList({ sites }: Props) {
     <PageBackground image="/images/sacred-card.jpg">
       <BackButton href="/about" />
 
-      <h1 className="text-xl font-semibold text-white tracking-tight mb-1">
-        {t.sacredSites}
-      </h1>
+      <PageTitle className="mb-1">{t.sacredSites}</PageTitle>
       <p className="text-xs text-white/70 mb-4">
-        {lang === "en"
-          ? `${sites.length} sacred sites along the 52km kora`
-          : `52公里转山路上${sites.length}处圣迹`}
+        {t.sacredSitesCount.replace('{count}', String(sites.length))}
       </p>
 
       {/* Stage filter */}
@@ -81,7 +78,7 @@ export default function SacredSitesList({ sites }: Props) {
             >
               <div
                 onClick={() => setExpandedId(isExpanded ? null : site.id)}
-                className="w-full text-left bg-white/90 backdrop-blur-sm rounded-xl p-3.5 border border-white/20 shadow-lg active:bg-white/80 transition-colors cursor-pointer"
+                className="w-full text-left card-glass p-3.5 active:bg-white/80 transition-colors cursor-pointer"
               >
                 <div className="flex items-start gap-3">
                   <div className={`flex-shrink-0 w-7 h-7 rounded-lg ${stageColors[site.stage] || 'bg-primary'} flex items-center justify-center`}>
@@ -101,7 +98,7 @@ export default function SacredSitesList({ sites }: Props) {
                     </div>
                     <div className="flex items-center gap-2 mt-0.5">
                       <span className="text-[11px] text-muted-foreground">
-                        {lang === "en" ? `Stage ${site.stage}` : `阶段${site.stage}`}
+                        {`${t.stage} ${site.stage}`}
                       </span>
                       {site.elevation_m && (
                         <span className="text-[11px] text-muted-foreground">
@@ -141,7 +138,7 @@ export default function SacredSitesList({ sites }: Props) {
                             <div className="flex items-center gap-1.5 mb-1">
                               <BookOpen className="w-3.5 h-3.5 text-secondary" />
                               <span className="text-[11px] font-medium text-secondary">
-                                {lang === 'en' ? 'Legend' : '传说'}
+                                {t.legend}
                               </span>
                             </div>
                             <p className="text-xs text-foreground/70 leading-relaxed whitespace-pre-line line-clamp-6">
@@ -155,7 +152,7 @@ export default function SacredSitesList({ sites }: Props) {
                             <div className="flex items-center gap-1.5 mb-1">
                               <Flame className="w-3.5 h-3.5 text-primary" />
                               <span className="text-[11px] font-medium text-primary">
-                                {lang === 'en' ? 'Practice' : '仪轨'}
+                                {t.practice}
                               </span>
                             </div>
                             <p className="text-xs text-foreground/70 leading-relaxed whitespace-pre-line line-clamp-6">

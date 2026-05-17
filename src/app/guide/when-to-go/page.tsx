@@ -5,6 +5,7 @@ import { CheckCircle, AlertTriangle, XCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { BackButton } from "@/components/BackButton";
 import { PageBackground } from "@/components/PageBackground";
+import { PageTitle } from "@/components/PageTitle";
 import { seasons, seasonOverview } from "@/data/guide/seasons";
 
 const ratingConfig = {
@@ -21,9 +22,7 @@ export default function WhenToGoPage() {
     <PageBackground image="/images/trail-card.jpg">
       <BackButton href="/guide" />
 
-      <h1 className="text-xl font-semibold text-white tracking-tight mb-1">
-        {t.whenToGo}
-      </h1>
+      <PageTitle className="mb-1">{t.whenToGo}</PageTitle>
       <p className="text-xs text-white/70 mb-5">
         {seasonOverview.openingSeason[lang]}
       </p>

@@ -22,7 +22,7 @@ const typeColors = {
 };
 
 export default function StageContent({ stage }: { stage: Stage }) {
-  const { lang } = useLanguage();
+  const { lang, t } = useLanguage();
 
   return (
     <PageBackground image="/images/trail-card.jpg">
@@ -42,7 +42,7 @@ export default function StageContent({ stage }: { stage: Stage }) {
       </div>
 
       {/* Timing tip */}
-      <div className="bg-white/90 backdrop-blur-sm rounded-xl p-3 border border-white/20 shadow-lg mb-4">
+      <div className="card-glass p-3 mb-4">
         <p className="text-sm text-foreground">{stage.timingTip[lang]}</p>
       </div>
 
@@ -56,7 +56,7 @@ export default function StageContent({ stage }: { stage: Stage }) {
 
       {/* Landmarks */}
       <h2 className="text-base font-semibold text-white mb-3">
-        {lang === "en" ? "Landmarks" : "沿途圣迹"}
+        {t.landmarks}
       </h2>
       <div className="space-y-2.5">
         {stage.landmarks.map((lm, i) => (
@@ -76,7 +76,7 @@ function LandmarkCard({ landmark, index, lang }: { landmark: StageLandmark; inde
       initial={{ opacity: 0, x: -8 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay: index * 0.05, duration: 0.25 }}
-      className="bg-white/90 backdrop-blur-sm rounded-xl p-3.5 border border-white/20 shadow-lg"
+      className="card-glass p-3.5"
     >
       <div className="flex items-start gap-3">
         <div className={`w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 ${color}`}>

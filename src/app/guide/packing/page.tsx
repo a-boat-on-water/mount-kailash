@@ -6,6 +6,7 @@ import { Copy, Check, ChevronDown } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { BackButton } from "@/components/BackButton";
 import { PageBackground } from "@/components/PageBackground";
+import { PageTitle } from "@/components/PageTitle";
 import { packingList, packingCategoryLabels, type PackingItem } from "@/data/packingList";
 
 export default function PackingPage() {
@@ -49,11 +50,9 @@ export default function PackingPage() {
 
         <div className="flex items-center justify-between mb-5">
           <div>
-            <h1 className="text-xl font-semibold text-white tracking-tight">
-              {t.packingList}
-            </h1>
+            <PageTitle className="mb-0">{t.packingList}</PageTitle>
             <p className="text-xs text-white/70 mt-0.5">
-              {lang === "en" ? `${packingList.length} items` : `${packingList.length}件物品`}
+              {`${packingList.length} ${t.items}`}
             </p>
           </div>
           <button
@@ -74,7 +73,7 @@ export default function PackingPage() {
                 <p className="text-xs font-semibold text-white/70 uppercase tracking-wider mb-2">
                   {packingCategoryLabels[cat][lang]}
                 </p>
-                <div className="bg-white/90 backdrop-blur-sm rounded-xl border border-white/20 shadow-lg divide-y divide-border/50">
+                <div className="card-glass divide-y divide-border/50">
                   {items.map((item) => (
                     <div key={item.id} className="p-3">
                       <div className="flex items-start gap-2.5">

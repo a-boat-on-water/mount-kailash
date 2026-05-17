@@ -23,7 +23,7 @@ export default function MarkdownPage({ titleKey, content, backHref = "/about" }:
         {t[titleKey]}
       </h1>
 
-      <div className="bg-white/90 backdrop-blur-sm rounded-xl p-5 border border-white/20 shadow-lg">
+      <div className="card-glass p-5">
         <article className="prose prose-sm max-w-none prose-headings:text-foreground prose-headings:font-semibold prose-p:text-foreground/85 prose-p:leading-relaxed prose-a:text-primary prose-strong:text-foreground">
           <ReactMarkdown remarkPlugins={[remarkGfm]}>
             {content}

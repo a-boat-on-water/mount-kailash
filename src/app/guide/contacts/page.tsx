@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { BackButton } from "@/components/BackButton";
 import { PageBackground } from "@/components/PageBackground";
+import { PageTitle } from "@/components/PageTitle";
 import { contacts, contactCategories } from "@/data/contacts";
 
 export default function ContactsPage() {
@@ -13,9 +14,7 @@ export default function ContactsPage() {
     <PageBackground image="/images/trail-card.jpg">
       <BackButton href="/guide" />
 
-      <h1 className="text-xl font-semibold text-white tracking-tight mb-5">
-        {t.contacts}
-      </h1>
+      <PageTitle>{t.contacts}</PageTitle>
 
       <div className="space-y-4">
         {(['emergency', 'services', 'transport', 'accommodation'] as const).map((cat) => {
@@ -31,7 +30,7 @@ export default function ContactsPage() {
               <p className="text-xs font-semibold text-white/70 uppercase tracking-wider mb-2">
                 {contactCategories[cat][lang]}
               </p>
-              <div className="bg-white/90 backdrop-blur-sm rounded-xl border border-white/20 shadow-lg divide-y divide-border/50">
+              <div className="card-glass divide-y divide-border/50">
                 {catContacts.map((c) => (
                   <div key={c.id} className="p-3.5">
                     <p className="text-sm font-medium text-foreground">{c.label[lang]}</p>
@@ -48,7 +47,7 @@ export default function ContactsPage() {
                     </div>
                     {c.verified && (
                       <p className="text-[10px] text-muted-foreground mt-1">
-                        {lang === "en" ? `Verified: ${c.verified}` : `核实: ${c.verified}`}
+                        {`${t.verified}: ${c.verified}`}
                       </p>
                     )}
                   </div>
