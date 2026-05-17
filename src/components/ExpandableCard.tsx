@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface ExpandableCardProps {
   title: string;
@@ -21,7 +22,7 @@ export function ExpandableCard({ title, icon, children }: ExpandableCardProps) {
       >
         {icon}
         <span className="text-sm font-medium text-foreground">{title}</span>
-        <ChevronDown className={`w-3.5 h-3.5 text-muted-foreground ml-auto transition-transform ${open ? "rotate-180" : ""}`} />
+        <ChevronDown className={cn("w-3.5 h-3.5 text-muted-foreground ml-auto transition-transform", open && "rotate-180")} />
       </button>
       <AnimatePresence>
         {open && (

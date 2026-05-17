@@ -52,7 +52,7 @@ export default function PackingPage() {
           <div>
             <PageTitle className="mb-0">{t.packingList}</PageTitle>
             <p className="text-xs text-white/70 mt-0.5">
-              {`${packingList.length} ${t.items}`}
+              {t.itemCount.replace('{count}', String(packingList.length))}
             </p>
           </div>
           <button

@@ -115,7 +115,7 @@ export const zh = {
   practice: '仪轨',
 
   // Packing
-  items: '件物品',
+  itemCount: '{count}件物品',
 
   // Contacts
   verified: '核实',

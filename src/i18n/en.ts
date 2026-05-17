@@ -115,7 +115,7 @@ export const en = {
   practice: 'Practice',
 
   // Packing
-  items: 'items',
+  itemCount: '{count} items',
 
   // Contacts
   verified: 'Verified',
