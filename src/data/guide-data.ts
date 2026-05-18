@@ -23,7 +23,7 @@ interface GuideJSON {
 }
 
 export function loadGuideData() {
-  const filePath = path.join(process.cwd(), 'doc', 'kailash_pilgrimage_guide.json');
+  const filePath = path.join(process.cwd(), 'assets-source', 'kailash_pilgrimage_guide.json');
   const data: GuideJSON = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
   return data.categorizedData;
 }

@@ -4,7 +4,7 @@ import MarkdownPage from "@/components/MarkdownPage";
 
 export default function LegendsPage() {
   const content = fs.readFileSync(
-    path.join(process.cwd(), "doc", "markdown", "legends.md"),
+    path.join(process.cwd(), "assets-source", "markdown", "legends.md"),
     "utf-8"
   );
   return <MarkdownPage titleKey="legends" content={content} />;
