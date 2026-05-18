@@ -126,6 +126,19 @@ export const zh = {
   messnerQuote: '',
   messnerAttribution: '',
 
+  // Depth content
+  learnMore: '了解更多',
+  deepDiveLabel: '深入了解',
+  showLess: '收起',
+  monthByMonth: '逐月详情',
+  sagaDawaFestival: '萨嘎达瓦节',
+  spo2Guide: '血氧指南',
+  whyThreeDays: '为什么分三天？',
+  segment: '路段',
+  trailNote: '路况提示',
+  sideTrip: '岔路',
+  supplyOverview: '补给点概况',
+
   // Legacy
   weather: '天气',
   gear: '装备',

@@ -2,14 +2,16 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Mountain } from "lucide-react";
+import { Mountain, Package } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ElevationChart } from "@/components/ElevationChart";
 import { BackButton } from "@/components/BackButton";
 import { PageBackground } from "@/components/PageBackground";
 import { PageTitle } from "@/components/PageTitle";
 import { StatCard } from "@/components/StatCard";
-import { stages } from "@/data/guide/stages";
+import { Section } from "@/components/Section";
+import { DepthContent } from "@/components/DepthContent";
+import { stages, itineraryOverview } from "@/data/guide/stages";
 
 interface Props {
   coordinates: [number, number, number][];
@@ -33,6 +35,16 @@ export default function RouteContent({ coordinates }: Props) {
         <StatCard label={t.highestPoint} value="5,650m" />
         <StatCard label={t.suggestedDays} value="2-3" />
       </div>
+
+      {/* Why 3 Days */}
+      <Section title={t.whyThreeDays} icon={<Mountain className="w-4 h-4" />}>
+        <div className="card-glass p-4">
+          <p className="text-sm text-foreground/80 leading-relaxed">
+            {itineraryOverview.philosophy[lang]}
+          </p>
+          <DepthContent context={itineraryOverview.context} deepDive={itineraryOverview.deepDive} />
+        </div>
+      </Section>
 
       {/* Elevation Profile */}
       <div className="mb-6">
@@ -86,6 +98,15 @@ export default function RouteContent({ coordinates }: Props) {
           </motion.div>
         ))}
       </div>
+
+      {/* Supply Points Overview */}
+      <Section title={t.supplyOverview} icon={<Package className="w-4 h-4" />}>
+        <div className="card-glass p-4">
+          <p className="text-sm text-foreground/80 leading-relaxed">
+            {itineraryOverview.supplyOverview[lang]}
+          </p>
+        </div>
+      </Section>
     </PageBackground>
   );
 }

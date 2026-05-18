@@ -126,6 +126,19 @@ export const en = {
   messnerQuote: '',
   messnerAttribution: '',
 
+  // Depth content
+  learnMore: 'Learn more',
+  deepDiveLabel: 'Deep dive',
+  showLess: 'Show less',
+  monthByMonth: 'Month by Month',
+  sagaDawaFestival: 'Saga Dawa Festival',
+  spo2Guide: 'SpO₂ Guide',
+  whyThreeDays: 'Why 3 Days?',
+  segment: 'Segment',
+  trailNote: 'Trail note',
+  sideTrip: 'Side trip',
+  supplyOverview: 'Supply Points Overview',
+
   // Legacy (keep for components that still reference)
   weather: 'Weather',
   gear: 'Gear',

@@ -2,6 +2,7 @@ export interface TransportOption {
   id: string;
   name: { en: string; zh: string };
   details: { en: string; zh: string };
+  context?: { en: string; zh: string };
 }
 
 export interface FeeItem {
@@ -9,6 +10,7 @@ export interface FeeItem {
   name: { en: string; zh: string };
   price: { en: string; zh: string };
   note?: { en: string; zh: string };
+  context?: { en: string; zh: string };
 }
 
 export interface PorterInfo {
@@ -16,6 +18,7 @@ export interface PorterInfo {
   name: { en: string; zh: string };
   price: { en: string; zh: string };
   note: { en: string; zh: string };
+  context?: { en: string; zh: string };
 }
 
 export const transport: TransportOption[] = [
@@ -25,6 +28,10 @@ export const transport: TransportOption[] = [
     details: {
       en: 'Departs from Lhasa North Suburb Bus Station at 9:00. 652 CNY, ~24 hours.',
       zh: '拉萨北郊客运站乘"拉萨-阿里"班车，9:00发车，652元，约24小时。',
+    },
+    context: {
+      en: 'Buy tickets at the station or via WeChat mini-program "西藏票务通" (select "阿里南"). Online tickets have a service fee and are only available 2-3 days ahead. Buses stop for mandatory rest between 2-5 AM. Tell the driver you\'re going to Darchen ("Shenshan"). Return bus departs Darchen at 13:00 daily during kora season.',
+      zh: '可在现场或通过微信小程序"西藏票务通"购票（终点选"阿里南"）。网购加收服务费且只能提前2-3天。班车凌晨2-5点需停车休息。上车跟司机说到塔钦（神山）。转山季有塔钦返回拉萨班车，每天13:00出发。',
     },
   },
   {
@@ -41,6 +48,10 @@ export const transport: TransportOption[] = [
     details: {
       en: 'Ali Kunsha Airport (200km away) or Pulan Airport (90km). Pulan has daily "Lhasa–Pulan" flights during 2026 kora season, with shuttle bus to Darchen (60 CNY/person).',
       zh: '阿里昆莎机场（200公里）或普兰机场（90公里）。普兰机场2026转山季每天一班"拉萨-普兰"，机场有班车直达塔钦（60元/人）。',
+    },
+    context: {
+      en: 'Both airports charge full fare (~3,200 CNY one-way to Lhasa, no discounts). Kunsha has more flight options (Lhasa, Kashgar, Xining, Chengdu) and 2-3 daily Lhasa flights. Pulan Airport shuttle bus contact: 18989975777 / 13618975655. If you need to leave urgently due to altitude sickness, Kunsha offers more flexibility despite being farther.',
+      zh: '两个机场票价均不打折，到拉萨单程约3200元。昆莎机场航班选择多（拉萨、喀什、西宁、成都），每天2-3班拉萨航班。普兰机场班车联系电话：18989975777 / 13618975655。如因高反需紧急离开，昆莎机场虽远但航班更灵活。',
     },
   },
 ];
@@ -71,6 +82,10 @@ export const fees: FeeItem[] = [
     name: { en: 'Kailash entrance ticket', zh: '神山门票' },
     price: { en: '150 CNY', zh: '150元' },
     note: { en: 'ID registration required. Valid for 3 days.', zh: '售票需身份证登记，有效期3天。' },
+    context: {
+      en: 'Kailash and Lake Manasarovar are separate tickets (150 CNY each). 2026 added two new ticket outlets: "Himalaya Kailash Hotel" on Darchen Middle Road (0897-2660999) and "Origin Hotel" at Building 6, International Tourism Town (13989972572), in addition to the original entrance gate northwest of Darchen.',
+      zh: '神山（冈仁波齐）与圣湖（玛旁雍错）门票分开，各150元。2026年新增两个售票点：塔钦中路的"喜马拉雅·冈仁波齐酒店"（0897-2660999）和国际旅游小镇6号楼"起点酒店"（13989972572）。',
+    },
   },
   {
     id: 'shuttle-tarboche',
@@ -104,6 +119,10 @@ export const porters: PorterInfo[] = [
     name: { en: 'Porter', zh: '背夫' },
     price: { en: '990 CNY / circuit (3 days)', zh: '990元/圈（3天）' },
     note: { en: 'Carries your pack for the full 3-day circuit.', zh: '全程3天背负行李。' },
+    context: {
+      en: 'Extra days charged at 330 CNY/day. Only use registered porters from Gangsha Village — unregistered "black porters" may be stopped mid-trail. Porters walk fast and may get far ahead; keep essentials (power bank, water, snacks) on your person. Some porters may rush you — firmly decline if it exceeds your ability.',
+      zh: '延长按330元/天计。务必使用岗莎村登记在册的背夫——"黑背夫"途中可能被拦下影响行程。背夫走得快可能抛离你很远，充电宝、水杯、少量干粮等随时要用的小件物品最好自己携带。个别背夫催促赶路时，请明确拒绝，按自己节奏走。',
+    },
   },
   {
     id: 'horse',
@@ -112,6 +131,10 @@ export const porters: PorterInfo[] = [
     note: {
       en: 'Only 37km of the trail is rideable. Must dismount for the 3km steep descent after the pass.',
       zh: '仅37公里路段可骑（垭口前后3公里下坡需下马）。',
+    },
+    context: {
+      en: 'Riding starts at Selong (6km from Darchen) and ends at Zongdui (4km from Darchen) — you must walk or take shuttles for the first and last sections. Consider walking Stage 1 (20km to Gangga/Drirapuk) first; if needed, horses can also be hired there for the remaining stages.',
+      zh: '骑马起点在塔钦6公里外的色雄，终点在离塔钦4公里的宗堆，前后两段需自行走路或坐接驳车。可以先尝试走第一阶段20公里到岗加/芝热寺，如有需要那里也可以租到马。',
     },
   },
 ];

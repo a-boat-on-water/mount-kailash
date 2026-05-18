@@ -20,6 +20,37 @@ export interface Stage {
   safetyAlert?: { en: string; zh: string };
 }
 
+export interface ItineraryOverview {
+  totalDistance: { en: string; zh: string };
+  philosophy: { en: string; zh: string };
+  context?: { en: string; zh: string };
+  deepDive?: { en: string; zh: string };
+  supplyOverview: { en: string; zh: string };
+}
+
+export const itineraryOverview: ItineraryOverview = {
+  totalDistance: {
+    en: '~50 km (49.7 km or 50.4 km depending on Day 1 accommodation choice)',
+    zh: '约50公里（因第一天住宿点选择不同，全程49.7公里或50.4公里）',
+  },
+  philosophy: {
+    en: 'This is a pilgrimage, not a trail race. The author strongly recommends 3 stages over 2.5 days for normal fitness levels. Most "2-day speed guides" online are written from a sports/challenge perspective — they leave people exhausted, unable to appreciate the sacred sites, and arriving after dark.',
+    zh: '转山就是转经，不是高原山地越野赛。作者明确建议普通体能者分3阶段、两天半完成。网上多数"两天走法"从户外运动角度出发，导致很多人疲惫不堪、无暇顾及沿途圣迹、甚至入夜后才能回到塔钦。',
+  },
+  context: {
+    en: 'Many Chinese guides promote 2-day or even 1-day completions as badges of honor. But even many Tibetan pilgrims take 2-3 days — especially older ones or those from lower altitudes. Young Tibetans who finish in one day start at 4 AM, travel light, and are fully acclimatized. "8-day Ali tour" groups often allow less than 1.5 days, forcing pilgrims to start immediately upon arrival — extremely dangerous.',
+    zh: '不少中文攻略将两天甚至一天转完视为"壮举"。但分两三天的藏族人也很多，尤其是年长者或来自低海拔藏区的。一天转完的年轻藏族人凌晨4点出发、轻装、完全适应高海拔。"阿里南线8天拼车团"经常只留不到1天半的转山时间，游客到塔钦后不能休息就得出发，极其危险。',
+  },
+  deepDive: {
+    en: 'The route was pioneered by Kagyu master Gotsangpa over 800 years ago. The officially measured distance is 49 km (no monastery detours). Various online sources cite 54-57 km, but these have significant positive error. The author\'s GPS measurements from dozens of koras, combined with Google Earth, yield 49.7-50.4 km. The guide divides the route into 14 sub-segments with terrain descriptions and realistic timing, rather than just point-to-point distances.',
+    zh: '转山路由噶举派大师郭仓巴800多年前开创。景区公司测量的不进寺庙全程约49公里。网上流传的54-57公里数据出处不明，正误差较大。作者根据数十次全程GPS轨迹结合Google Earth综合测算，全程49.7-50.4公里。本指南将全程细分为14个小阶段，着重说明路况及实际需时，比单看距离更具参考意义。',
+  },
+  supplyOverview: {
+    en: '11 fixed supply points + 5 temporary points (2026). Max 7 km between points. All connected to the national power grid (since 2024), mobile signal, WeChat Pay accepted. Major points offer rice dishes, noodles, butter tea. Two main overnight stops (Gangga/Drirapuk and Zutulpuk) have proper guesthouses. NO showers anywhere on the trail.',
+    zh: '11个固定补给点 + 5个临时点（2026年）。相邻最远约7公里。全部已接入国家电网（2024年起），有手机信号，支持微信支付。主要补给点提供盖饭、面条、酥油茶。岗加/芝热寺和尊珠寺有条件较好的大型宾馆。所有住宿点均无洗澡条件。',
+  },
+};
+
 export const stages: Stage[] = [
   {
     id: 1,

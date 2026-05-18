@@ -6,6 +6,7 @@ import { BackButton } from "@/components/BackButton";
 import { PageBackground } from "@/components/PageBackground";
 import { PageTitle } from "@/components/PageTitle";
 import { mountainSections } from "@/data/about/mountain";
+import { DepthContent } from "@/components/DepthContent";
 
 export default function MountainPage() {
   const { lang, t } = useLanguage();
@@ -31,6 +32,7 @@ export default function MountainPage() {
             <p className="text-sm text-foreground/80 leading-relaxed">
               {section.content[lang]}
             </p>
+            <DepthContent context={section.context} deepDive={section.deepDive} />
           </motion.div>
         ))}
       </div>

@@ -6,6 +6,7 @@ import { BackButton } from "@/components/BackButton";
 import { PageBackground } from "@/components/PageBackground";
 import { PageTitle } from "@/components/PageTitle";
 import { Section } from "@/components/Section";
+import { DepthContent } from "@/components/DepthContent";
 import { transport, darchen, fees, porters, supplyPoints } from "@/data/guide/logistics";
 
 export default function LogisticsPage() {
@@ -23,6 +24,7 @@ export default function LogisticsPage() {
               <div key={tr.id} className="p-3.5">
                 <p className="text-sm font-medium text-foreground">{tr.name[lang]}</p>
                 <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{tr.details[lang]}</p>
+                <DepthContent context={tr.context} />
               </div>
             ))}
           </div>
@@ -64,6 +66,7 @@ export default function LogisticsPage() {
                 {f.note && (
                   <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{f.note[lang]}</p>
                 )}
+                <DepthContent context={f.context} />
               </div>
             ))}
           </div>
@@ -78,6 +81,7 @@ export default function LogisticsPage() {
                   <span className="text-sm font-bold text-primary">{p.price[lang]}</span>
                 </div>
                 <p className="text-xs text-muted-foreground mt-1">{p.note[lang]}</p>
+                <DepthContent context={p.context} />
               </div>
             ))}
           </div>
