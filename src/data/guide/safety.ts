@@ -209,6 +209,41 @@ export const incidents: Incident[] = [
   },
 ];
 
+export const badWeatherGuide: SafetyTip[] = [
+  {
+    id: 'light-snow',
+    title: { en: 'Light snow on the trail', zh: '薄雪路面' },
+    content: {
+      en: 'Light snow actually fills gaps between rocks, making the trail easier to walk. But avoid shiny/reflective patches — those are ice.',
+      zh: '薄雪反而能填平乱石路面走起来更舒服——但不要踩雪面反光区域，那里是冰层，滑。',
+    },
+  },
+  {
+    id: 'snow-protection',
+    title: { en: 'Snow UV protection', zh: '雪地防护' },
+    content: {
+      en: 'Snow-reflected UV is extremely intense. Cover your face with a scarf/buff and wear sunglasses to prevent snow blindness and severe sunburn.',
+      zh: '雪面反射紫外线非常强烈。用头巾遮好脸部防止灼伤，戴好墨镜防雪盲。',
+    },
+  },
+  {
+    id: 'blizzard-retreat',
+    title: { en: 'Blizzard: retreat immediately', zh: '大风雪：立即撤退' },
+    content: {
+      en: 'In heavy snowfall, visibility drops to near zero. Retreat to the previous supply point rather than pushing forward. If climbing toward Dolma La when heavy snow starts, turn back to the nearest supply point (Small Sky Burial Platform west side). If already past the pass, proceed carefully downhill — the 3km descent is the most accident-prone area in whiteout conditions.',
+      zh: '大风雪时能见度极低，应立即往回撤到最近补给点。爬卓玛拉途中遇到持续大雪应立即往回走到小天葬台西侧补给点。如果已过垭口则小心下行——卓玛拉下行3公里在白雪中事故最多。',
+    },
+  },
+  {
+    id: 'management-closure',
+    title: { en: 'Temporary closure', zh: '临时封山' },
+    content: {
+      en: 'If snowfall is heavy or accumulation too deep, local management will temporarily close the trail — all trekkers must stop and wait. Do not attempt to bypass closures.',
+      zh: '遇持续大雪或垭口积雪过深，管理部门会暂时"封山"禁止所有人进入，必须等待开放。',
+    },
+  },
+];
+
 export const authorTips: SafetyTip[] = [
   {
     id: 'pace',

@@ -12,7 +12,7 @@ interface Props {
   backHref?: string;
 }
 
-export default function MarkdownPage({ titleKey, content, backHref = "/about" }: Props) {
+export default function MarkdownPage({ titleKey, content, backHref = "/guide" }: Props) {
   const { t } = useLanguage();
 
   return (

@@ -7,5 +7,5 @@ export default function RitualsPage() {
     path.join(process.cwd(), "assets-source", "markdown", "rituals.md"),
     "utf-8"
   );
-  return <MarkdownPage titleKey="rituals" content={content} />;
+  return <MarkdownPage titleKey="rituals" content={content} backHref="/guide" />;
 }

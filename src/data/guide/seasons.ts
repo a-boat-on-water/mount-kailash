@@ -90,12 +90,25 @@ export const seasons: SeasonalPeriod[] = [
 
 export const monthByMonth: MonthDetail[] = [
   {
+    id: 'apr',
+    month: { en: 'April', zh: '四月' },
+    temp: { en: 'Daytime 0–8°C, Night -15–-5°C', zh: '白天0～8°C，夜间-15～-5°C' },
+    conditions: {
+      en: 'Season opens late April. Still cold with extensive snow at high elevations. Snow can be deep and dangerous. Not recommended for inexperienced trekkers.',
+      zh: '4月下旬开放。气温低，高海拔路段积雪范围较多、雪较深，可能下大雪，无丰富经验者不建议。',
+    },
+    note: {
+      en: 'The kora opens when the scenic area resumes ticket sales, usually late April. Dates may shift based on weather conditions — check for official announcements.',
+      zh: '每年4月下旬景区恢复出售门票即为开放转山，具体开放/结束日期可能根据天气条件略作调整，可留意景区公告。',
+    },
+  },
+  {
     id: 'may',
     month: { en: 'May', zh: '五月' },
     temp: { en: 'Daytime 5–12°C, Night -5–3°C', zh: '白天5～12°C，夜间-5～3°C' },
     conditions: {
-      en: 'Season opens late April. Generally dry with cold nights. Residual snow possible near Dolma La. Saga Dawa festival usually falls in late May or mid-June.',
-      zh: '4月下旬开放。天气干燥，夜间寒冷。卓玛拉附近可能有残雪。萨嘎达瓦节通常在5月底或6月中。',
+      en: 'Warming up, more trekkers arrive. Generally clear skies. Rivers still have ice; residual snow at high elevations. Surrounding grass still brown.',
+      zh: '气温逐步回升，转山人增多。天气大致晴朗，但河面有很多冰还没化，高海拔处依然有积雪，沿途草基本还是枯黄。',
     },
   },
   {
@@ -159,4 +172,33 @@ export const sagaDawa = {
 
 export const seasonOverview = {
   openingSeason: { en: 'May – October (late April opening, Nov 1 closure)', zh: '5月～10月底（4月下旬开放、11月1日封山）' },
+};
+
+export const bestTiming = {
+  firstChoice: {
+    period: { en: 'Mid September – Mid October', zh: '9月中～10月中' },
+    note: {
+      en: 'Best overall window for first-timers. Dry, clear skies, best mountain visibility. Avoid National Day holiday week (Oct 1–7).',
+      zh: '最佳时段。天气干燥晴朗，能见度最佳。尽量避开国庆黄金周。',
+    },
+  },
+  secondChoice: {
+    period: { en: 'Mid May – Late June', zh: '5月中～6月底' },
+    note: {
+      en: 'Second-best window. Generally stable weather. Avoid the few days around Saga Dawa festival unless you specifically want to experience it.',
+      zh: '次佳时段。天气大致稳定。如非专门为萨嘎达瓦节而来，最好错开节日及前后几天。',
+    },
+  },
+  winterWarning: {
+    en: 'NEVER attempt a kora during the closure period (Nov 1 – late April). No supply points, extreme cold, life-threatening conditions. In February 2022, 5 people ignored warnings and attempted a winter kora — 2 died and 3 were seriously injured in a blizzard. The trail now has surveillance cameras; authorities will intercept and turn back anyone attempting a winter kora.',
+    zh: '切勿在景区关闭（封山）期间转山！全程无补给，气温低路况差，极易发生致命意外。2022年2月初，5人不顾劝阻执意冬季转山，遭遇大风雪导致两死三伤。现在沿途安装了大量监控摄像头，管理部门发现有人在封山期间转山会阻拦遣返。',
+  },
+};
+
+export const windWarning = {
+  title: { en: 'Afternoon Headwinds', zh: '午后大风' },
+  content: {
+    en: 'From mid-September onward, strong south winds pick up daily around noon — gusts can exceed force 8. On the return leg (Stage 3), you\'ll face direct headwinds that slow your pace considerably. The wind dies down after sunset. Plan your Stage 3 walk for early morning to avoid the worst.',
+    zh: '大致从9月中起，每天中午左右开始刮南向大风，有时阵风超过8级。回程（第三阶段）刚好是迎头风，影响行走速度，大风要到日落后才慢慢消停。第三阶段回程尽量安排在上午。',
+  },
 };

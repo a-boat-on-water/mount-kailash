@@ -64,9 +64,7 @@ export const zh = {
   copied: '已复制！',
   back: '返回',
 
-  // About Hub
-  aboutTitle: '关于冈仁波齐',
-  aboutSubtitle: '神山背后的意义',
+  // Cultural (formerly About Hub)
   sacredMountain: '神山简介',
   sacredMountainDesc: '四大宗教、地理与朝圣哲学',
   sacredSites: '圣迹',
@@ -138,6 +136,13 @@ export const zh = {
   trailNote: '路况提示',
   sideTrip: '岔路',
   supplyOverview: '补给点概况',
+
+  // Guide hub groups
+  planYourTrip: '行程规划',
+  understandKailash: '了解冈仁波齐',
+  fullBook: '完整指南',
+  fullBookDesc: '阅读指南全部14章',
+  journey: '转山',
 
   // Legacy
   weather: '天气',

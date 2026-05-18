@@ -7,5 +7,5 @@ export default function LegendsPage() {
     path.join(process.cwd(), "assets-source", "markdown", "legends.md"),
     "utf-8"
   );
-  return <MarkdownPage titleKey="legends" content={content} />;
+  return <MarkdownPage titleKey="legends" content={content} backHref="/guide" />;
 }

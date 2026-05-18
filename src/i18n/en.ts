@@ -64,9 +64,7 @@ export const en = {
   copied: 'Copied!',
   back: 'Back',
 
-  // About Hub
-  aboutTitle: 'About Kailash',
-  aboutSubtitle: 'The meaning behind the mountain',
+  // Cultural (formerly About Hub)
   sacredMountain: 'The Sacred Mountain',
   sacredMountainDesc: 'Four religions, geography, and pilgrimage philosophy',
   sacredSites: 'Sacred Sites',
@@ -138,6 +136,13 @@ export const en = {
   trailNote: 'Trail note',
   sideTrip: 'Side trip',
   supplyOverview: 'Supply Points Overview',
+
+  // Guide hub groups
+  planYourTrip: 'Plan Your Trip',
+  understandKailash: 'Understand Kailash',
+  fullBook: 'Full Book',
+  fullBookDesc: 'Read all 14 chapters of the guide',
+  journey: 'Journey',
 
   // Legacy (keep for components that still reference)
   weather: 'Weather',

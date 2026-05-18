@@ -15,6 +15,18 @@ export const packingCategoryLabels: Record<PackingItem['category'], { en: string
   documents: { en: 'Documents', zh: '证件' },
 };
 
+export const packingPhilosophy = {
+  title: { en: 'Pack Light — This is a Pilgrimage, Not Everest', zh: '轻装上阵——转山不是登珠峰' },
+  content: {
+    en: 'This is a kora (pilgrimage circumambulation), not a mountaineering expedition. The trail has been walked by countless pilgrims for centuries. With 11 supply points along the route offering food and accommodation during the kora season, there is no need to pack as if heading to a base camp. Many who "nearly collapsed" were simply carrying too much unused gear.',
+    zh: '我们是去转山而不是登山，这条转经道数百年来已有无数朝圣者走过。现在全程共有11处固定补给点，转山季期间基础食宿服务都相当齐全。不少转山走到"累成狗"的人，最常见的原因就是背了太多、太重、而实际用不上的物品。',
+  },
+  disclaimer: {
+    en: 'This packing list is for the May–October kora season under normal weather conditions. In sustained heavy snow or extreme weather, retreat to the nearest supply point immediately. NEVER attempt a winter kora (Dec–Mar).',
+    zh: '以下清单只针对5-10月转山季的通常气候条件。若遇持续大雪等突发恶劣天气，应立即撤退到最近补给点。12月至次年3月封山期间切勿转山。',
+  },
+};
+
 export const packingList: PackingItem[] = [
   // === FOOTWEAR & POLES ===
   {

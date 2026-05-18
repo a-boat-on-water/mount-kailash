@@ -1,13 +1,13 @@
 "use client";
 
-import { Truck, MapPin, Ticket, Users, Package } from "lucide-react";
+import { Truck, MapPin, Ticket, Users, Package, Building, Route } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { BackButton } from "@/components/BackButton";
 import { PageBackground } from "@/components/PageBackground";
 import { PageTitle } from "@/components/PageTitle";
 import { Section } from "@/components/Section";
 import { DepthContent } from "@/components/DepthContent";
-import { transport, darchen, fees, porters, supplyPoints } from "@/data/guide/logistics";
+import { transport, darchen, fees, porters, supplyPoints, tarchenSections, itineraryPlanning } from "@/data/guide/logistics";
 
 export default function LogisticsPage() {
   const { lang, t } = useLanguage();
@@ -93,6 +93,25 @@ export default function LogisticsPage() {
             <InfoRow label={t.maxGap} value={supplyPoints.maxGap[lang]} />
             <InfoRow label={t.infrastructure} value={supplyPoints.infrastructure[lang]} />
             <InfoRow label={t.services} value={supplyPoints.services[lang]} />
+          </div>
+        </Section>
+
+        <Section title={itineraryPlanning.howManyDays.title[lang]} icon={<Route className="w-4 h-4" />}>
+          <div className="card-glass p-4 space-y-3">
+            <p className="text-sm text-foreground/80 leading-relaxed">{itineraryPlanning.howManyDays.content[lang]}</p>
+            <DepthContent context={itineraryPlanning.howManyDays.context} />
+          </div>
+        </Section>
+
+        <Section title={lang === 'en' ? 'Tarchen Town Guide' : '塔钦镇攻略'} icon={<Building className="w-4 h-4" />}>
+          <div className="card-glass divide-y divide-border/50">
+            {tarchenSections.map((section) => (
+              <div key={section.id} className="p-3.5">
+                <p className="text-sm font-medium text-foreground">{section.title[lang]}</p>
+                <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{section.content[lang]}</p>
+                <DepthContent context={section.context} />
+              </div>
+            ))}
           </div>
         </Section>
     </PageBackground>

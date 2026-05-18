@@ -36,7 +36,7 @@ export default function SacredSitesList({ sites }: Props) {
 
   return (
     <PageBackground image="/images/sacred-card.jpg">
-      <BackButton href="/about" />
+      <BackButton href="/guide" />
 
       <PageTitle className="mb-1">{t.sacredSites}</PageTitle>
       <p className="text-xs text-white/70 mb-4">

@@ -7,7 +7,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { BackButton } from "@/components/BackButton";
 import { PageBackground } from "@/components/PageBackground";
 import { PageTitle } from "@/components/PageTitle";
-import { packingList, packingCategoryLabels, type PackingItem } from "@/data/packingList";
+import { packingList, packingCategoryLabels, packingPhilosophy, type PackingItem } from "@/data/packingList";
 
 export default function PackingPage() {
   const { lang, t } = useLanguage();
@@ -62,6 +62,14 @@ export default function PackingPage() {
             {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
             {copied ? t.copied : t.copyList}
           </button>
+        </div>
+
+        <div className="card-glass p-4 mb-5">
+          <p className="text-sm font-semibold text-foreground mb-1.5">{packingPhilosophy.title[lang]}</p>
+          <p className="text-xs text-foreground/70 leading-relaxed">{packingPhilosophy.content[lang]}</p>
+          <p className="text-[10px] text-foreground/50 mt-2 leading-relaxed border-t border-border/50 pt-2">
+            {packingPhilosophy.disclaimer[lang]}
+          </p>
         </div>
 
         <div className="space-y-5">

@@ -13,7 +13,7 @@ export default function MountainPage() {
 
   return (
     <PageBackground image="/images/sacred-card.jpg">
-      <BackButton href="/about" />
+      <BackButton href="/guide" />
 
       <PageTitle>{t.sacredMountain}</PageTitle>
 

@@ -1,7 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { AlertTriangle, MapPin, Home, Package, Landmark, Info, ArrowRight, Footprints } from "lucide-react";
+import { AlertTriangle, MapPin, Home, Package, Landmark, Info, ArrowRight, ArrowLeft, Footprints, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { BackButton } from "@/components/BackButton";
 import { PageBackground } from "@/components/PageBackground";
@@ -28,16 +29,18 @@ const typeColors = {
 interface Props {
   stage: Stage;
   chapter?: GuideChapter;
+  prevStage: number | null;
+  nextStage: number | null;
 }
 
-export default function StageContent({ stage, chapter }: Props) {
+export default function StageDetail({ stage, chapter, prevStage, nextStage }: Props) {
   const { lang, t } = useLanguage();
   const segments = chapter?.stageData?.segments;
   const stageData = chapter?.stageData;
 
   return (
     <PageBackground image="/images/trail-card.jpg">
-      <BackButton href="/guide/route" />
+      <BackButton href="/journey" />
 
       {/* Header */}
       <div className="flex items-center gap-3 mb-4">
@@ -87,6 +90,36 @@ export default function StageContent({ stage, chapter }: Props) {
           </div>
         </>
       )}
+
+      {/* Prev / Next navigation */}
+      <div className="flex gap-3 mt-8 mb-4">
+        {prevStage ? (
+          <Link
+            href={`/journey/${prevStage}`}
+            className="flex-1 card-glass p-3 flex items-center gap-2 active:scale-[0.98] transition-transform"
+          >
+            <ChevronLeft className="w-4 h-4 text-white/60" />
+            <span className="text-sm text-foreground">
+              {lang === "en" ? `Stage ${prevStage}` : `第${prevStage}阶段`}
+            </span>
+          </Link>
+        ) : (
+          <div className="flex-1" />
+        )}
+        {nextStage ? (
+          <Link
+            href={`/journey/${nextStage}`}
+            className="flex-1 card-glass p-3 flex items-center justify-end gap-2 active:scale-[0.98] transition-transform"
+          >
+            <span className="text-sm text-foreground">
+              {lang === "en" ? `Stage ${nextStage}` : `第${nextStage}阶段`}
+            </span>
+            <ChevronRight className="w-4 h-4 text-white/60" />
+          </Link>
+        ) : (
+          <div className="flex-1" />
+        )}
+      </div>
     </PageBackground>
   );
 }

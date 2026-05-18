@@ -13,7 +13,7 @@ export default function ProtocolsPage() {
 
   return (
     <PageBackground image="/images/sacred-card.jpg">
-      <BackButton href="/about" />
+      <BackButton href="/guide" />
 
       <PageTitle>{t.protocols}</PageTitle>
 

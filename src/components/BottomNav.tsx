@@ -3,14 +3,14 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import { Home, MapPin, BookOpen, Sparkles } from "lucide-react";
+import { Home, MapPin, BookOpen, Footprints } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const tabs = [
   { href: "/", key: "home" as const, icon: Home },
   { href: "/map", key: "map" as const, icon: MapPin },
   { href: "/guide", key: "guide" as const, icon: BookOpen },
-  { href: "/about", key: "about" as const, icon: Sparkles },
+  { href: "/journey", key: "journey" as const, icon: Footprints },
 ];
 
 export default function BottomNav() {

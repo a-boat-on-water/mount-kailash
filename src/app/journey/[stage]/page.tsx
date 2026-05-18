@@ -1,7 +1,7 @@
 import { stages } from "@/data/guide/stages";
 import { chapter8, chapter9, chapter10 } from "@/data/guide/chapters";
 import type { GuideChapter } from "@/data/guide/types";
-import StageContent from "./StageContent";
+import StageDetail from "./StageDetail";
 
 const chapterMap: Record<number, GuideChapter> = {
   1: chapter8,
@@ -13,7 +13,7 @@ export function generateStaticParams() {
   return stages.map((s) => ({ stage: String(s.id) }));
 }
 
-export default async function StagePage({ params }: { params: Promise<{ stage: string }> }) {
+export default async function JourneyStagePage({ params }: { params: Promise<{ stage: string }> }) {
   const { stage: stageParam } = await params;
   const stageId = parseInt(stageParam, 10);
   const stage = stages.find((s) => s.id === stageId);
@@ -23,6 +23,8 @@ export default async function StagePage({ params }: { params: Promise<{ stage: s
   }
 
   const chapter = chapterMap[stageId];
+  const prevStage = stageId > 1 ? stageId - 1 : null;
+  const nextStage = stageId < 3 ? stageId + 1 : null;
 
-  return <StageContent stage={stage} chapter={chapter} />;
+  return <StageDetail stage={stage} chapter={chapter} prevStage={prevStage} nextStage={nextStage} />;
 }

@@ -17,8 +17,8 @@ export const culturalProtocols: Protocol[] = [
     id: 'photography',
     title: { en: 'Ask before photographing people', zh: '拍摄先征求同意' },
     content: {
-      en: 'Always ask permission before photographing local people, especially monks and pilgrims in prayer.',
-      zh: '拍摄当地人请先征求同意，尤其是僧侣和正在祈祷的朝圣者。',
+      en: 'Always ask permission before photographing local people. Many Tibetans on the trail, especially older ones, may not speak Mandarin — use body language and a smile to express your request. Show them the photo afterward or send it to them as thanks. If someone declines, respect their wishes and do not insist.',
+      zh: '拍摄别人请先征得对方的允许。转山途中遇到的藏族人，特别是年纪大的，可能汉语能力有限。用身体语言和微笑表达善意请求，拍完之后回放给对方看或把照片发给对方以表谢意。对方不愿意则不要强行拍照。',
     },
   },
   {
@@ -36,8 +36,8 @@ export const environmentalProtocols: Protocol[] = [
     id: 'trash',
     title: { en: 'Pack out your trash', zh: '自带垃圾袋' },
     content: {
-      en: 'Bring trash bags and carry out all lightweight non-degradable waste (plastic bags, snack wrappers). The Dolma La area is highest in elevation and hardest to clean.',
-      zh: '自带垃圾袋将轻量难降解垃圾（塑料袋、零食包装）带回塔钦丢弃，卓玛拉一带海拔最高、清运最难。',
+      en: 'Bring trash bags and carry out all lightweight non-degradable waste (plastic bags, snack wrappers). The Dolma La area is highest in elevation and hardest to clean — vehicles cannot reach it, so all trash removal relies on people and horses. Strong winds blow light litter far from the trail into unreachable areas. If you see serious trash problems, call the scenic area hotline: 400-6666-712.',
+      zh: '自带垃圾袋将轻量难降解垃圾（塑料袋、零食包装）带回塔钦丢弃。卓玛拉前后这段海拔最高，车辆开不上去，垃圾运送靠人背马驮。大风会将轻垃圾吹到远处无法清理。如发现严重垃圾问题可打景区综合服务热线400-6666-712。',
     },
   },
   {

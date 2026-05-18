@@ -1,6 +1,6 @@
 "use client";
 
-import { Shield, AlertTriangle, Lightbulb, Activity } from "lucide-react";
+import { Shield, AlertTriangle, Lightbulb, Activity, CloudSnow } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { BackButton } from "@/components/BackButton";
 import { PageBackground } from "@/components/PageBackground";
@@ -8,7 +8,7 @@ import { PageTitle } from "@/components/PageTitle";
 import { Section } from "@/components/Section";
 import { ExpandableCard } from "@/components/ExpandableCard";
 import { DepthContent } from "@/components/DepthContent";
-import { altitudeTips, otherRisks, incidents, authorTips, spo2Guide } from "@/data/guide/safety";
+import { altitudeTips, otherRisks, incidents, authorTips, spo2Guide, badWeatherGuide } from "@/data/guide/safety";
 
 export default function SafetyPage() {
   const { lang, t } = useLanguage();
@@ -62,6 +62,17 @@ export default function SafetyPage() {
               <p className="text-sm font-medium text-foreground">{risk.title[lang]}</p>
               <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{risk.content[lang]}</p>
               <DepthContent context={risk.context} />
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section title={lang === 'en' ? 'Bad Weather Guide' : '恶劣天气应对'} icon={<CloudSnow className="w-4 h-4" />}>
+        <div className="card-glass divide-y divide-border/50">
+          {badWeatherGuide.map((tip) => (
+            <div key={tip.id} className="p-3.5">
+              <p className="text-sm font-medium text-foreground">{tip.title[lang]}</p>
+              <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{tip.content[lang]}</p>
             </div>
           ))}
         </div>

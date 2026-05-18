@@ -12,7 +12,7 @@ export default function GlossaryPage() {
 
   return (
     <PageBackground image="/images/sacred-card.jpg">
-      <BackButton href="/about" />
+      <BackButton href="/guide" />
 
       <PageTitle>{t.glossary}</PageTitle>
 
